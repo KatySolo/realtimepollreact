@@ -1,0 +1,15 @@
+.rating {
+    /* border: 1px black solid; */
+    width: fit-content;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ratingInput {
+    margin: 0;
+}
+
+.ratingName {
+    margin-right: 10px;
+}
