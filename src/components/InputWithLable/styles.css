@@ -1,0 +1,20 @@
+.input {
+    /* border: 1px solid black; */
+    padding: 5px;
+    width: fit-content;
+}
+
+.inputName {
+    margin-right: 10px;
+}
+
+.inputInline,
+.inputNotInline {
+    margin: 0;
+    padding: 0;
+}
+
+.inputNotInline {
+    display: block;
+    margin-top: 5px;
+}
