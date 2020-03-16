@@ -1,52 +1,20 @@
 import React, { Component } from 'react'
 import './styles.css';
-import { setFormValue, setInterestValue, setContentValue } from '../../actions/surveyActions';
-import { connect } from 'react-redux';
+import FormRaiting from './childrens/Form';
+import ContentRaiting from './childrens/Content';
+import InterestRaiting from './childrens/Interest';
 
-const mapDispatchToProps = dispatch => {
-    return {
-        setForm: form => dispatch(setFormValue(form)),
-        setInterest: interest => dispatch(setInterestValue(interest)),
-        setContent: content => dispatch(setContentValue(content)),
-    }
-}
-export class RatingWithLable extends Component {
-    handleInput(e) {
-        let handler = null;
+export default class RatingWithLable extends Component {
+    render(){
         switch(this.props.id) {
             case 'form':
-                handler = this.props.setForm;
-                break;
-
+                return <FormRaiting {...this.props}/>
             case 'content':
-                handler = this.props.setContent;
-                break;
-            
+                return <ContentRaiting {...this.props}/>
             case 'interest':
-                handler = this.props.setInterest;
-                break;
+                return <InterestRaiting {...this.props}/>
             default:
-                handler = null;    
+                return (<div className="rating"></div>)
         }
-
-        handler(e.target.value);
-    }
-    render(){
-        return (
-            <div className="rating">
-                <span className="ratingName">{this.props.lable}</span>
-                <input 
-                    className="ratingInput" 
-                    placeholder='5' 
-                    type='number' 
-                    min='1' 
-                    max='10' 
-                    value={this.props.inputValue} 
-                    onChange={value => this.handleInput(value)}
-                />
-            </div>
-        );
     }
 }
-
-export default connect(null, mapDispatchToProps)(RatingWithLable);
