@@ -3,6 +3,15 @@ const initialState = {
     sessionId: -1
 }
 
-export function sessionReducer (state = initialState) {
-    return state;
+export function sessionReducer (state = initialState, action) {
+    switch (action.type) {
+        case 'SESSION/SET_SESSIONS':
+            return {
+                ...state,
+                sessions: action.payload
+            }
+        
+        default:
+            return state;
+    }
 }

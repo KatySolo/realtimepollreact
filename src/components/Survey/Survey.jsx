@@ -13,8 +13,8 @@ const mapStateToProps = store => {
         form: store.survey.form,
         interest: store.survey.interest,
         content: store.survey.content,
-        comment: store.survey.comment
-        // sessionId: store.session.sessionId
+        comment: store.survey.comment,
+        sessions: store.session.sessions
     }
 }
 
@@ -30,7 +30,7 @@ class Survey extends Component {
                     inputValue={this.props.name}
                 /> 
                 {/* send sessionId here but show results inside + add actions and dispatch */}
-                <SelectorWithLable lable="Выбирете лекцию"/>
+                <SelectorWithLable lable="Выбирете лекцию" sessions={this.props.sessions}/>
                 {/* form, interest, content */}
                 <ThreeColumnsLayout>
                     <RatingWithLable lable='Форма' id='form' inputValue={this.props.form} />

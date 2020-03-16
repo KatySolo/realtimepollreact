@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
 import './styles.css'
+import  axios from 'axios';
+import { setSessions } from '../../actions/sessionActions';
+import { store } from '../../index';
 
 export class SelectorWithLable extends Component {
+    componentDidMount(){
+        // console.log(this.props)
+        axios.get('https://realtimepoll-server.herokuapp.com/current')
+        .then(res => {
+            store.dispatch(setSessions(res.data));
+        });
+    } 
     render() {
-        // console.log(this.props);
         return(
             <div className='selectorContainer'>
             <span className='selectorName'>{this.props.lable}</span>
-            {this.props.options === undefined && <span className='loadingMsg'>Загрузка...</span>}
-            {this.props.options !== undefined && 
+            {this.props.sessions === undefined && <span className='loadingMsg'>Загрузка...</span>}
+            {this.props.sessions !== undefined && 
             <select className='selector'>
-                {this.props.options !== undefined && this.props.options.map(option => { return (
-                    <option value={option.id}>{option.name}</option>
+                {this.props.sessions !== undefined && this.props.sessions.map(option => { return (
+                    <option value={option.id} key={option.id}>{option.title}</option>
                 )})}
             </select>}
             </div>
