@@ -1,12 +1,10 @@
-export const initialState = {
-    name: '',
-    form: 0,
-    interest: 0,
-    content: 0,
-    comment: '',
-    sessionId: -1
-}
+import { combineReducers } from 'redux';
+import { nameReducer } from './name';
+import { surveyReducer } from './survey';
+import { sessionReducer } from './session';
 
-export function rootReducer(state = initialState) {
-    return state
-}
+export const rootReducer = combineReducers({ 
+    user: nameReducer,
+    survey: surveyReducer,
+    session: sessionReducer
+});

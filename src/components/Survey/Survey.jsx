@@ -9,12 +9,12 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = store => {
     return {
-        name: store.name,
-        form: store.form,
-        interest: store.interest,
-        content: store.content,
-        comment: store.comment,
-        sessionId: store.sessionId
+        name: store.user.name,
+        form: store.survey.form,
+        interest: store.survey.interest,
+        content: store.survey.content,
+        comment: store.survey.comment
+        // sessionId: store.session.sessionId
     }
 }
 
