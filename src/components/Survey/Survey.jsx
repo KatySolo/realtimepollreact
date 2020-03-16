@@ -24,7 +24,8 @@ class Survey extends Component {
             <div className='survey'>
                 {/* name */}
                 <InputWithLable 
-                    inline={true} 
+                    inline={true}
+                    id="name"
                     lable="Введите имя" 
                     inputValue={this.props.name}
                 /> 
@@ -39,6 +40,7 @@ class Survey extends Component {
                 {/* comment */}
                 <InputWithLable 
                     inline={false}
+                    id="comment"
                     lable="Введите коментарии, что понравилось, а что нужно подтянуть" 
                     inputValue={this.props.comment}
                 />
