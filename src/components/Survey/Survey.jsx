@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { InputWithLable } from '../InputWithLable/InputWithLable';
+import InputWithLable from '../InputWithLable/InputWithLable';
 import { SelectorWithLable } from '../SelectorWithLable/SelectorWithLable';
-import { RatingWithLable } from '../RatingWithLable/RaitingWithLable';
+import RatingWithLable from '../RatingWithLable/RaitingWithLable';
 import { ThreeColumnsLayout } from '../containers/ThreeColumnsLayout';
 import { SubmitButton } from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
@@ -28,13 +28,13 @@ class Survey extends Component {
                     lable="Введите имя" 
                     inputValue={this.props.name}
                 /> 
-                {/* send sessionId here but show results inside */}
+                {/* send sessionId here but show results inside + add actions and dispatch */}
                 <SelectorWithLable lable="Выбирете лекцию"/>
                 {/* form, interest, content */}
                 <ThreeColumnsLayout>
-                    <RatingWithLable lable='Форма' inputValue={this.props.form} />
-                    <RatingWithLable lable='Интерес' inputValue={this.props.interest} />
-                    <RatingWithLable lable='Содержание' inputValue={this.props.content} />
+                    <RatingWithLable lable='Форма' id='form' inputValue={this.props.form} />
+                    <RatingWithLable lable='Интерес' id='interest' inputValue={this.props.interest} />
+                    <RatingWithLable lable='Содержание' id='content' inputValue={this.props.content} />
                 </ThreeColumnsLayout>
                 {/* comment */}
                 <InputWithLable 

@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import { nameReducer } from './name';
+import { userReducer } from './user';
 import { surveyReducer } from './survey';
 import { sessionReducer } from './session';
 
 export const rootReducer = combineReducers({ 
-    user: nameReducer,
+    user: userReducer,
     survey: surveyReducer,
     session: sessionReducer
 });

@@ -3,7 +3,7 @@ import './styles.css'
 
 export class SelectorWithLable extends Component {
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         return(
             <div className='selectorContainer'>
             <span className='selectorName'>{this.props.lable}</span>
