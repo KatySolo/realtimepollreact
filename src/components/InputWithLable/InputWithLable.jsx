@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import './styles.css';
+import NameInput from './childrens/Name';
+import CommentInput from './childrens/Comment';
 
-export class InputWithLable extends Component {
+
+export default class InputWithLable extends Component {
     render(){
-        return(
-            <div className="input">
-                <span className="inputName">{this.props.lable}</span>
-                {this.props.inline && <input className="inputInline" type='text' />}
-                {!this.props.inline && <textarea className="inputNotInline" name='comment' cols="30" rows="5" />}
-            </div>
-        );
+       switch(this.props.id) {
+            case 'name':
+                return (<NameInput {...this.props}/>);
+
+            case 'comment':
+                return (<CommentInput {...this.props}/>);
+            
+            default:
+                return (<div className="input"></div>);
+       }
     }
 }

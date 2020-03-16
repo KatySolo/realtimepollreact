@@ -8,3 +8,4 @@ export default {
 
 export const LableInlineInput = () => <InputWithLable inline={true} lable='Lable Inlined With Input' />
 export const LableBeforeInput = () => <InputWithLable inline={false} lable='Lable Over An Input' />
+export const LableWithLongValue = () => <InputWithLable inline={true} lable='Lable With Long Value' inputValue='verylongvaluesoyoucantseeitall'/>

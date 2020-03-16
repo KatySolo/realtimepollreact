@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import './styles.css';
+import FormRaiting from './childrens/Form';
+import ContentRaiting from './childrens/Content';
+import InterestRaiting from './childrens/Interest';
 
-export class RatingWithLable extends Component {
+export default class RatingWithLable extends Component {
     render(){
-        return (
-            <div className="rating">
-                <span className="ratingName">{this.props.lable}</span>
-                <input className="ratingInput" placeholder='5' type='number' min='1' max='10' />
-            </div>
-        );
+        switch(this.props.id) {
+            case 'form':
+                return <FormRaiting {...this.props}/>
+            case 'content':
+                return <ContentRaiting {...this.props}/>
+            case 'interest':
+                return <InterestRaiting {...this.props}/>
+            default:
+                return (<div className="rating"></div>)
+        }
     }
 }
