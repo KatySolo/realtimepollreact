@@ -3,7 +3,7 @@ import InputWithLable from '../InputWithLable/InputWithLable';
 import { SelectorWithLable } from '../SelectorWithLable/SelectorWithLable';
 import RatingWithLable from '../RatingWithLable/RaitingWithLable';
 import { ThreeColumnsLayout } from '../containers/ThreeColumnsLayout';
-import { SubmitButton } from '../SubmitButton/SubmitButton';
+import SubmitButton from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
 
 
