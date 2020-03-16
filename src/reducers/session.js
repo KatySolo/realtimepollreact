@@ -11,6 +11,12 @@ export function sessionReducer (state = initialState, action) {
                 sessions: action.payload
             }
         
+        case 'SESSION/SET_SESSION_ID': 
+            return {
+                ...state,
+                sessionId: action.payload
+            }
+            
         default:
             return state;
     }

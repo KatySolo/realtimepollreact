@@ -4,3 +4,10 @@ export function setSessions(sessions) {
         payload: sessions
     }
 }
+
+export function setSessionId (id) {
+    return {
+        type: "SESSION/SET_SESSION_ID",
+        payload: id
+    }
+}
