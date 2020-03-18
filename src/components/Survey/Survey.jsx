@@ -29,7 +29,7 @@ class Survey extends Component {
                     lable="Введите имя" 
                     inputValue={this.props.name}
                 /> 
-                {/* send sessionId here but show results inside + add actions and dispatch */}
+                {/* session selector */}
                 <SelectorWithLable lable="Выбирете лекцию" sessions={this.props.sessions}/>
                 {/* form, interest, content */}
                 <ThreeColumnsLayout>
@@ -44,6 +44,7 @@ class Survey extends Component {
                     lable="Введите коментарии, что понравилось, а что нужно подтянуть" 
                     inputValue={this.props.comment}
                 />
+                {/* submit button */}
                 <SubmitButton text='Отправить'/>
             </div>
         );
