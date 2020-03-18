@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputWithLable } from './InputWithLable';
+import InputWithLable from './InputWithLable';
 
 export default {
     title: 'Input With Lable',

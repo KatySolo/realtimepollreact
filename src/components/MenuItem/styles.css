@@ -1,0 +1,12 @@
+.menuItem {
+    border: 1px solid black;
+    width: fit-content;
+    padding: 2px 5px;
+    margin: 5px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.arrowDown {
+    margin-left: 2px;
+}

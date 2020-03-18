@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles.css'
 import { connect } from 'react-redux';
-import axios from 'axios';
+// import axios from 'axios';
 
 const mapStateToProps = store => {
     return {
