@@ -1,7 +1,7 @@
 const initialState = {
-    form: 0,
-    interest: 0,
-    content: 0,
+    form: 1,
+    interest: 1,
+    content: 1,
     comment: ''
 }
 
