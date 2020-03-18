@@ -1,10 +1,10 @@
 import React from 'react';
 import  Survey  from './components/Survey/Survey';
+import { AdminPanel } from './components/AdminPanel/AdminPanel';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
             {/* <LoginPanel /> */}
           </Route>
           <Route path="/admin">
-            {/* <AdminPanel /> */}
+            <AdminPanel />
           </Route>
       </Switch>
     </Router>
