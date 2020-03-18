@@ -16,7 +16,7 @@ const mapStateToProps = store => {
 
 class SubmitButton extends Component {
     handleSubmit() {
-        const { sessionId, form, content, interest, name, comment } = this.props;
+        // const { sessionId, form, content, interest, name, comment } = this.props;
         // console.log(sessionId, form, content, interest, name, comment);
         // TODO on when ready
         // axios.post('https://realtimepoll-server.herokuapp.com/results', {
