@@ -19,23 +19,23 @@ class SubmitButton extends Component {
         const { sessionId, form, content, interest, name, comment } = this.props;
         // console.log(sessionId, form, content, interest, name, comment);
         // TODO on when ready
-        axios.post('https://realtimepoll-server.herokuapp.com/results', {
-            sessionId,
-            form,
-            content,
-            interest,
-            username: name,
-            comment
-        }).then(res => {
-            console.log(res.data)
-        })
+        // axios.post('https://realtimepoll-server.herokuapp.com/results', {
+        //     sessionId,
+        //     form,
+        //     content,
+        //     interest,
+        //     username: name,
+        //     comment
+        // }).then(res => {
+        //     console.log(res.data)
+        // })
     }
 
     isValidSurvey() {
-        const { form, interest, content } = this.props;
+        const { form, interest, content, sessionId } = this.props;
         const isValidParam = x => x > 0 && x < 11;
 
-        return isValidParam(form) && isValidParam(content) && isValidParam(interest)
+        return isValidParam(form) && isValidParam(content) && isValidParam(interest) && sessionId !== -1
     }
         
     render() {
