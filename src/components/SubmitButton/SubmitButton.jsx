@@ -30,11 +30,24 @@ class SubmitButton extends Component {
             console.log(res.data)
         })
     }
+
+    isValidSurvey() {
+        const { form, interest, content } = this.props;
+        const isValidParam = x => x > 0 && x < 11;
+
+        return isValidParam(form) && isValidParam(content) && isValidParam(interest)
+    }
         
     render() {
         return(
             <div className='buttonContainer'>
-                <button className='submitButton' type="submit" onClick={() => this.handleSubmit()}>{this.props.text || 'Отправить'}</button>
+                <button 
+                    className='submitButton' 
+                    type="submit" 
+                    disabled={!this.isValidSurvey()}
+                    onClick={() => this.handleSubmit()}>
+                        {this.props.text || 'Отправить'}
+                    </button>
             </div>
         );
     }
