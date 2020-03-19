@@ -2,11 +2,30 @@
     border: 1px solid black;
     width: fit-content;
     padding: 2px 5px;
-    margin: 5px;
-    min-width: 80px;
+    min-width: 120px;
     text-align: center;
+    height: fit-content;
 }
 
 .arrowDown {
     margin-left: 2px;
 }
+
+.submenuCont{
+    position: absolute;
+    width: inherit;
+    opacity: 0;;
+}
+.arrowDown:after {
+    content: '↓';
+}
+
+.arrowUp:after {
+    content: '↑';
+}
+
+.visible {
+    opacity: 1;
+}
+
+

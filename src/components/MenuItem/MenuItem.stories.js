@@ -13,6 +13,7 @@ export const WithSubMenuNotClicked = () => {
         <MenuItem title='SubMenu'>
             <SubMenu>
                 <MenuItem title='SubmenuTest'/>
+                <MenuItem title='SubmenuTest1'/>
             </SubMenu>
         </MenuItem>
     );
