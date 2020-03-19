@@ -11,7 +11,7 @@ export default class InputWithLable extends Component {
                 return (<NameInput {...this.props}/>);
 
             case 'comment':
-                return (<CommentInput {...this.props}/>);
+                return (<CommentInput {...this.props}/>); 
             
             default:
                 return (<div className="input"></div>);

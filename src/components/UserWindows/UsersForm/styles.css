@@ -1,0 +1,12 @@
+.usersForm {
+    display: flex;
+}
+
+.sendNewUserButton {
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.sendNewUserButton:focus {
+    outline: none;    
+}

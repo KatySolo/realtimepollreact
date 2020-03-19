@@ -5,6 +5,7 @@
     min-width: 120px;
     text-align: center;
     height: fit-content;
+    background: white;
 }
 
 .arrowDown {
@@ -14,7 +15,7 @@
 .submenuCont{
     position: absolute;
     width: inherit;
-    opacity: 0;;
+    display: none;
 }
 .arrowDown:after {
     content: '↓';
@@ -25,7 +26,7 @@
 }
 
 .visible {
-    opacity: 1;
+    display: block;
 }
 
 a {

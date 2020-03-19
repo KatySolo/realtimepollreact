@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Menu } from '../../components/Menu/Menu';
 import { MenuItem } from '../../components/MenuItem/MenuItem';
 import { SubMenu } from '../../components/SubMenu/SubMenu';
+import UsersForm from '../UserWindows/UsersForm/UsersFrom';
 
 export class AdminPanel extends Component {
     render() {
@@ -29,6 +30,7 @@ export class AdminPanel extends Component {
                 {/* TODO probably with react router */}
                 {/* Window with result */}
                 {/* <ResultPanel /> */}
+                <UsersForm />
             </div>
         );
     }
