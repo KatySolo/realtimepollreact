@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
 export class MenuItem extends Component {
@@ -10,6 +11,7 @@ export class MenuItem extends Component {
         }
 
         this.handleEvent = this.handleEvent.bind(this);
+        // this.re
     }
 
     handleEvent(e) {
@@ -30,7 +32,7 @@ export class MenuItem extends Component {
         } else {
         return(
             <div className="menuItem">
-                <span className="itemName">{this.props.title}</span>
+                <Link to={this.props.url}><span className="itemName" onClick={this.redirect}>{this.props.title}</span></Link>
             </div>
             )
         }

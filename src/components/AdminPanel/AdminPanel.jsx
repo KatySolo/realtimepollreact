@@ -12,17 +12,17 @@ export class AdminPanel extends Component {
                 <Menu >
                     <MenuItem title="Опросы">
                         <SubMenu>
-                            <MenuItem title="Показать список"/>
-                            <MenuItem title="Добавить"/>
+                            <MenuItem title="Показать список" url='admin/sessions/list' />
+                            <MenuItem title="Добавить" url='admin/sessions/add' />
                         </SubMenu>
                     </MenuItem>
                     <MenuItem title="Пользователи">
                         <SubMenu>
-                            <MenuItem title="Показать список"/>
-                            <MenuItem title="Добавить"/>
+                            <MenuItem title="Показать список" url='admin/users/list' />
+                            <MenuItem title="Добавить" url='admin/users/add' />
                         </SubMenu>
                     </MenuItem>
-                    <MenuItem title='Выйти'/>
+                    <MenuItem title='Выйти' url='/' />
                     
                 </Menu>
 
