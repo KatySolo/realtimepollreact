@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Menu } from '../../components/Menu/Menu';
 import { MenuItem } from '../../components/MenuItem/MenuItem';
 import { SubMenu } from '../../components/SubMenu/SubMenu';
+// import UserList from '../../components/UserWindows/UsersList/UsersList'
+import { SessionsList } from '../../components/SessionWindows/SessionsList';
 // import UsersForm from '../UserWindows/UsersForm/UsersFrom';
 // import SessionForm from '../SessionWindows/SessionForm';
 
@@ -31,7 +33,9 @@ export class AdminPanel extends Component {
                 {/* TODO probably with react router */}
                 {/* Window with result */}
                 {/* <ResultPanel /> */}
+                {/* <UserList /> */}
                 {/* <UsersForm /> */}
+                <SessionsList />
                 {/* <SessionForm /> */}
             </div>
         );
