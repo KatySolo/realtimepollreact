@@ -11,3 +11,31 @@ export function setSessionId (id) {
         payload: id
     }
 }
+
+export function setSessionName (title) {
+    return {
+        type: 'SESSION/ADD/SET_TITLE',
+        payload: title
+    }
+}
+
+export function setSessionLector (username) {
+    return {
+        type: 'SESSION/ADD/SET_USERNAME',
+        payload: username
+    }
+}
+
+export function setSessionStart (start) {
+    return {
+        type: 'SESSION/ADD/SET_START',
+        payload: start
+    }
+}
+
+export function setSessionFinish(finish) {
+    return {
+        type: 'SESSION/ADD/SET_FINISH',
+        payload: finish
+    }
+}
