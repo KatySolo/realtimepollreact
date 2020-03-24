@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-import { Menu } from '../../components/Menu/Menu';
-import { MenuItem } from '../../components/MenuItem/MenuItem';
-import { SubMenu } from '../../components/SubMenu/SubMenu';
-import UsersForm from '../UserWindows/UsersForm/UsersFrom';
+import { Menu } from '../Menu/Menu';
+import { MenuItem } from '../MenuItem/MenuItem';
+import { SubMenu } from '../SubMenu/SubMenu';
+// import UserList from '../../components/UserWindows/UsersList/UsersList'
+import { SessionsList } from '../SessionWindows/SessionsList';
+import { SessionInfo } from '../SessionWindows/SessionInfo/SessionInfo';
+// import UsersForm from '../UserWindows/UsersForm/UsersFrom';
+// import SessionForm from '../SessionWindows/SessionForm';
 
 export class AdminPanel extends Component {
     render() {
@@ -30,7 +34,11 @@ export class AdminPanel extends Component {
                 {/* TODO probably with react router */}
                 {/* Window with result */}
                 {/* <ResultPanel /> */}
-                <UsersForm />
+                {/* <UserList /> */}
+                {/* <UsersForm /> */}
+                {/* <SessionsList /> */}
+                {/* <SessionForm /> */}
+                <SessionInfo />
             </div>
         );
     }
