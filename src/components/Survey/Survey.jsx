@@ -23,7 +23,7 @@ class Survey extends Component {
     constructor(props) {
         super(props);
 
-        this.isValidForm = this.isValidForm.bind(this);
+        this.isValidSurvey = this.isValidSurvey.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     
