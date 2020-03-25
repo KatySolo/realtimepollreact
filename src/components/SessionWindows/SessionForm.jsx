@@ -3,6 +3,8 @@ import InputWithLable from '../InputWithLable/InputWithLable';
 import { DatePicker } from '../DatePicker/DatePicker';
 import { connect } from 'react-redux';
 import SubmitButton from '../SubmitButton/SubmitButton';
+import axios from 'axios'
+import './SessionForm.css'
 
 const mapStateToProps = store => {
     return {
@@ -16,6 +18,10 @@ const mapStateToProps = store => {
 class SessionForm extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            msg: '',
+            isError: false
+        }
 
         this.isValidForm = this.isValidForm.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,13 +34,17 @@ class SessionForm extends Component {
 
     handleSubmit() {
         const { title, username, start, finish } = this.props;
-        console.log(title, username, start, finish);
-        // TODO on when ready
-        // axios.post('https://realtimepoll-server.herokuapp.com/sessions', {
-        //     ....
-        // }).then(res => {
-        //     console.log(res.data)
-        // })
+
+        axios.post('https://realtimepoll-server.herokuapp.com/session', {
+            title,
+            username,
+            start,
+            finish
+        }).then(res => {
+            this.setState({msg: res.data, isError: false})
+        }).catch(err => {
+            this.setState({msg: err, isError: true})
+        })
     }
 
     render(){
@@ -45,6 +55,9 @@ class SessionForm extends Component {
                 <DatePicker lable="Начало сессии" id="start" />
                 <DatePicker lable="Конец сессии" id="finish" />
                 <SubmitButton text="Создать новую сессию" isValid={this.isValidForm} handleSubmit={this.handleSubmit} />
+                <div className={this.state.isError ? 'msgBox error' : 'msgBox correct'}>
+                    {this.state.msg}
+                </div>
             </div>
         );
     }

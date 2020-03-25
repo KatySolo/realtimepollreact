@@ -1,6 +1,7 @@
 .menu {
     display: flex;
     width: fit-content;
-    border: 1px red solid;
+    /* border: 1px red solid; */
     padding: 5px;
+    height: fit-content;
 }

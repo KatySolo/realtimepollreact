@@ -1,5 +1,5 @@
 .submenu {
-    border-top: 1px solid green;
+    /* border: 1px dashed black; */
     width: fit-content;
     min-width: 100px;
     position: absolute;

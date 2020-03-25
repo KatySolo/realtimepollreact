@@ -1,42 +1,29 @@
 import React, { Component } from 'react';
 import './SessionsList.css';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 
 export class SessionsList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            results: [{
-                title: 'Очень классная сессия была',
-                start: '2020-03-19T12:00',
-                finish: '2020-03-20T11:45',
-                isActive: false,
-                count: 5,
-                id: 23,
-            },
-            {
-                title: 'Очень классная сессия будет',
-                start: '2020-03-25T12:00',
-                finish: '2020-03-26T11:45',
-                isActive: false,
-                count: 0,
-                id: -1
-            },
-            {
-                title: 'Очень классная сессия сейчас',
-                start: '2020-03-19T12:00',
-                finish: '2020-03-29T11:45',
-                isActive: true,
-                count: 10,
-                id: -1
-            }]
+            results: [],
+            isDataReady: false
         }
     }
 
     componentDidMount() {
-        //get data from db
+        axios.get('https://realtimepoll-server.herokuapp.com/sessions')
+            .then(res => {
+                this.setState({results: res.data, isDataReady: true});
+            })
     }
 
     render() {
+        if (!this.state.isDataReady){
+            return <Loader type="ThreeDots" color="black"/>
+        } else {
         return (
             <div className="sessionsList">
                 <table>
@@ -45,7 +32,6 @@ export class SessionsList extends Component {
                         <td>Название сессии</td>
                         <td>Начало голосования</td>
                         <td>Конец голосования</td>
-                        <td>Кол-во проголосовавших</td>
                         <td>Статус</td>
                         <td>Результаты</td>
                     </tr>
@@ -56,9 +42,12 @@ export class SessionsList extends Component {
                                     <td>{result.title}</td>
                                     <td>{new Date(result.start).toLocaleString()}</td>
                                     <td>{new Date(result.finish).toLocaleString()}</td>
-                                    <td>{result.count}</td>
                                     <td><span className={result.id === -1 ? result.isActive ? 'current' : 'future' : 'finished'} /></td>
-                                    <td><a className={result.id === -1 ? 'disabled' : ''} href='#'>Посмотреть</a></td>
+                                    <td>
+                                        <Link to={"/admin/sessions/"+result.id}>
+                                            <span className={result.id === -1 ? 'disabled' : ''}>Посмотреть</span>
+                                        </Link>
+                                    </td>
                                 </tr>
                             )
                         })
@@ -66,6 +55,6 @@ export class SessionsList extends Component {
                     </tbody>
                 </table>
             </div>
-        );
+        )}
     }
 }

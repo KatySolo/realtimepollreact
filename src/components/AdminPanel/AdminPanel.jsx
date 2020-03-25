@@ -6,7 +6,7 @@ import { UsersList } from '../../components/UserWindows/UsersList/UsersList'
 import { SessionsList } from '../SessionWindows/SessionsList';
 import UsersForm from '../UserWindows/UsersForm/UsersFrom';
 import SessionForm from '../SessionWindows/SessionForm';
-
+import {SessionInfo} from '../SessionWindows/SessionInfo/SessionInfo';
 import {
     BrowserRouter as Router,
     Switch,
@@ -42,6 +42,7 @@ export class AdminPanel extends Component {
                     <Route path="/admin/sessions/add" component={SessionForm}/>
                     <Route path="/admin/users/list" component={UsersList}/>
                     <Route path="/admin/users/add" component={UsersForm}/>
+                    <Route path="/admin/sessions/1"><SessionInfo id={1} /></Route>
                 </Switch>     
             </Router>
             </div>

@@ -1,28 +1,47 @@
 import React, { Component } from 'react';
 import './styles.css'
+import axios from 'axios';
+import Loader from 'react-loader-spinner';
 
 export class SessionInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: 'testTitle',
-            start: '02.03.2019',
-            finish: '03.03.2019',
-            count: 10,
-            form: 5.5,
-            interest: 5.3,
-            content: 3.7,
-            comments:[]
+            title: '',
+            start: '',
+            finish: '',
+            count: 0,
+            form: 0,
+            interest: 0,
+            content: 0,
+            comments:[],
+            isDataReady: false
         }
     }
 
     componentDidMount(){
-        //TODO collect all data from back
+        axios.get('https://realtimepoll-server.herokuapp.com/results?id='+this.props.id)
+        .then(res => {
+            this.setState({
+                isDataReady: true,
+                title: res.data.title,
+                start: new Date(res.data.start).toLocaleString(),
+                finish: new Date(res.data.finish).toLocaleString(),
+                count: res.data.count,
+                form: res.data.form,
+                interest: res.data.interest,
+                content: res.data.content,
+                comments: res.data.comments
+            })
+        })
     }
 
     render() {
+        if (!this.state.isDataReady) {
+            return (<Loader type='ThreeDots' color="black"/>)
+        } else {
         return (
-            <div className="sessinoInfo">
+            <div className="sessionInfo">
                 <div className='sessionTitle'><b>Название сессии: </b>{this.state.title}</div>
                 <div className='sessionStart'><b>Начало сессии: </b>{this.state.start}</div>
                 <div className='sessionFinish'><b>Окончание сессии: </b>{this.state.finish}</div>
@@ -40,6 +59,6 @@ export class SessionInfo extends Component {
                 )}
                 </div>
             </div>
-        );
+        )}
     }
 }

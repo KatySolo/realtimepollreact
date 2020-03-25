@@ -1,10 +1,11 @@
 .menuItem {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: fit-content;
     padding: 2px 5px;
     min-width: 120px;
     text-align: center;
     height: fit-content;
+    min-height: 15px;
     background: white;
 }
 
