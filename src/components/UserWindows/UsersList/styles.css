@@ -7,3 +7,7 @@ ol {
 li {
     width: fit-content;
 }
+
+.totalNumber {
+    display: flex;
+}

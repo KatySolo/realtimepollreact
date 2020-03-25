@@ -1,6 +1,7 @@
 import React, { Component }  from 'react';
 import InputWithLable from '../../InputWithLable/InputWithLable'
 import { connect } from 'react-redux';
+import axios from 'axios';
 import './styles.css';
 
 const mapStateToProps = state => {
@@ -12,19 +13,24 @@ const mapStateToProps = state => {
 class UsersForm extends Component {
     constructor(props) {
         super(props);
+        this.state={
+            msg: '',
+            isError: false
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit() {
-        // axios.post('https://realtimepoll-server.herokuapp.com/user',{
-        //     name: this.props.name
-        // }).then(res => {
-        //      // TODO send to backend and add check if there are existing
-        // })
+        axios.post('https://realtimepoll-server.herokuapp.com/user',{
+            name: this.props.name
+        }).then(res => {
+            this.setState({msg: res.data, isError: false})
+        }).catch(err => {
+            this.setState({msg: 'Такой пользователь существует', isError: true})
+        })
        
     }
 
     render(){
-        console.log(this.props.name);
         // TODO clear state after login + clean form 
         return (
             <div className='usersForm'>
@@ -35,6 +41,9 @@ class UsersForm extends Component {
                     onClick={this.handleSubmit}>
                     Создать
                 </button>
+                <div className={this.state.isError ? 'msgBox error' : 'msgBox correct'}>
+                    {this.state.msg}
+                </div>
             </div>
         );
     }
