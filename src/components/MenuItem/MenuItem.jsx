@@ -11,7 +11,6 @@ export class MenuItem extends Component {
         }
 
         this.handleEvent = this.handleEvent.bind(this);
-        // this.re
     }
 
     handleEvent(e) {
@@ -32,7 +31,7 @@ export class MenuItem extends Component {
         } else {
         return(
             <div className="menuItem">
-                <Link to={this.props.url}><span className="itemName" onClick={this.redirect}>{this.props.title}</span></Link>
+                <span className="itemName">{this.props.title}</span>
             </div>
             )
         }

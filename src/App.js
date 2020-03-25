@@ -12,12 +12,8 @@ function App() {
     <div className="App">
     <Router>
       <Switch>
-         <Route path="/" exact>
-            <Survey />
-          </Route>
-          <Route path="/login">
-            {/* <LoginPanel /> */}
-          </Route>
+          <Route path="/" exact component={Survey} />
+          {/* <Route path="/login" /> */}
           <Route path="/admin">
             <AdminPanel />
           </Route>

@@ -2,43 +2,48 @@ import React, { Component } from 'react';
 import { Menu } from '../Menu/Menu';
 import { MenuItem } from '../MenuItem/MenuItem';
 import { SubMenu } from '../SubMenu/SubMenu';
-// import UserList from '../../components/UserWindows/UsersList/UsersList'
+import { UsersList } from '../../components/UserWindows/UsersList/UsersList'
 import { SessionsList } from '../SessionWindows/SessionsList';
-import { SessionInfo } from '../SessionWindows/SessionInfo/SessionInfo';
-// import UsersForm from '../UserWindows/UsersForm/UsersFrom';
-// import SessionForm from '../SessionWindows/SessionForm';
+import UsersForm from '../UserWindows/UsersForm/UsersFrom';
+import SessionForm from '../SessionWindows/SessionForm';
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect
+} from "react-router-dom";
 
 export class AdminPanel extends Component {
     render() {
         return (
             <div className="adminPanel">
-                {/* Upper menu with submenu */}
-                {/* mode="vertical" openAnimation="slide-up" triggerSubMenuAction="click" */}
+             <Router>
                 <Menu >
                     <MenuItem title="Опросы">
                         <SubMenu>
-                            <MenuItem title="Показать список" url='admin/sessions/list' />
-                            <MenuItem title="Добавить" url='admin/sessions/add' />
+                            <Link to='/admin/sessions/list'><MenuItem title="Показать список" /></Link>
+                            <Link to='/admin/sessions/add'><MenuItem title="Добавить" /></Link>
                         </SubMenu>
                     </MenuItem>
                     <MenuItem title="Пользователи">
                         <SubMenu>
-                            <MenuItem title="Показать список" url='admin/users/list' />
-                            <MenuItem title="Добавить" url='admin/users/add' />
+                            <Link to='/admin/users/list'><MenuItem title="Показать список" /></Link>
+                            <Link to='/admin/users/add'><MenuItem title="Добавить" /></Link>
                         </SubMenu>
                     </MenuItem>
-                    <MenuItem title='Выйти' url='/' />
+                    {/* // remove cookie and logput */}
+                    <MenuItem title='Выйти' />
                     
                 </Menu>
-
-                {/* TODO probably with react router */}
-                {/* Window with result */}
-                {/* <ResultPanel /> */}
-                {/* <UserList /> */}
-                {/* <UsersForm /> */}
-                {/* <SessionsList /> */}
-                {/* <SessionForm /> */}
-                <SessionInfo />
+                <Switch>
+                    <Route path="/admin/sessions/list" component={SessionsList}/>
+                    <Route path="/admin/sessions/add" component={SessionForm}/>
+                    <Route path="/admin/users/list" component={UsersList}/>
+                    <Route path="/admin/users/add" component={UsersForm}/>
+                </Switch>     
+            </Router>
             </div>
         );
     }
