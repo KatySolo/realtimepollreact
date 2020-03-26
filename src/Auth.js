@@ -7,7 +7,7 @@ class Auth {
       domain: 'katysolopoll.eu.auth0.com',
       audience: 'https://katysolopoll.eu.auth0.com/userinfo',
       clientID: '59bqsavCkAbMf03S4pIzjttAt3dXxPRy',
-      redirectUri: 'https://realtimepoll-server.herokuapp.com/callback',
+      redirectUri: 'https://realtimepoll.now.sh/callback',
       responseType: 'id_token',
       scope: 'openid profile'
     });
