@@ -20,7 +20,8 @@ export class SessionInfo extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://realtimepoll-server.herokuapp.com/results?id='+this.props.id)
+        const { id } = this.props.match.params
+        axios.get(`https://realtimepoll-server.herokuapp.com/results?id=${id}`)
         .then(res => {
             this.setState({
                 isDataReady: true,

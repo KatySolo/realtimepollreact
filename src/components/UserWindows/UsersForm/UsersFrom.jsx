@@ -3,6 +3,7 @@ import InputWithLable from '../../InputWithLable/InputWithLable'
 import { connect } from 'react-redux';
 import axios from 'axios';
 import './styles.css';
+import auth0Client from '../../../Auth'
 
 const mapStateToProps = state => {
     return {
@@ -22,6 +23,8 @@ class UsersForm extends Component {
     handleSubmit() {
         axios.post('https://realtimepoll-server.herokuapp.com/user',{
             name: this.props.name
+        },{
+            headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
         }).then(res => {
             this.setState({msg: res.data, isError: false})
         }).catch(err => {

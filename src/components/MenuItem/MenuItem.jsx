@@ -31,7 +31,9 @@ export class MenuItem extends Component {
         } else {
         return(
             <div className="menuItem">
-                <span className="itemName">{this.props.title}</span>
+                <span className="itemName">
+                    {this.props.title}
+                </span>
             </div>
             )
         }

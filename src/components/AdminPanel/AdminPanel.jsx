@@ -7,16 +7,33 @@ import { SessionsList } from '../SessionWindows/SessionsList';
 import UsersForm from '../UserWindows/UsersForm/UsersFrom';
 import SessionForm from '../SessionWindows/SessionForm';
 import {SessionInfo} from '../SessionWindows/SessionInfo/SessionInfo';
+import './AdminPanel.css'
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    Redirect
+    withRouter
 } from "react-router-dom";
+import auth0Client from '../../Auth';
 
-export class AdminPanel extends Component {
+class AdminPanel extends Component {
+    logout() {
+        // TODO it check once but after its not -> clear all cookies
+        auth0Client.signOut();
+        this.props.history.replace('/');
+    }
+
     render() {
+        if (!auth0Client.isAuthenticated()) {
+            return (
+                <div>
+                    <div>Страница достпуна только администратору. Уходите.</div>
+                    <button onClick={auth0Client.signIn}>Пустите, я админ</button>
+                </div>
+                
+            );
+        } else {
         return (
             <div className="adminPanel">
              <Router>
@@ -34,7 +51,7 @@ export class AdminPanel extends Component {
                         </SubMenu>
                     </MenuItem>
                     {/* // remove cookie and logput */}
-                    <MenuItem title='Выйти' />
+                    <span className='logout' onClick={() => this.logout()}><MenuItem title='Выйти'/></span>
                     
                 </Menu>
                 <Switch>
@@ -42,10 +59,13 @@ export class AdminPanel extends Component {
                     <Route path="/admin/sessions/add" component={SessionForm}/>
                     <Route path="/admin/users/list" component={UsersList}/>
                     <Route path="/admin/users/add" component={UsersForm}/>
-                    <Route path="/admin/sessions/1"><SessionInfo id={1} /></Route>
+                    <Route path="/admin/sessions/:id" render={(props) => <SessionInfo {...props} />} />
                 </Switch>     
             </Router>
             </div>
-        );
+            );
+        }
     }
 }
+
+export default withRouter(AdminPanel)

@@ -5,6 +5,8 @@ import RatingWithLable from '../RatingWithLable/RaitingWithLable';
 import { ThreeColumnsLayout } from '../containers/ThreeColumnsLayout';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 const mapStateToProps = store => {
@@ -22,6 +24,9 @@ const mapStateToProps = store => {
 class Survey extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            msg: ''
+        }
 
         this.isValidSurvey = this.isValidSurvey.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,16 +36,22 @@ class Survey extends Component {
         const { sessionId, form, content, interest, name, comment } = this.props;
         console.log(sessionId, form, content, interest, name, comment);
         // TODO on when ready
-        // axios.post('https://realtimepoll-server.herokuapp.com/results', {
-        //     sessionId,
-        //     form,
-        //     content,
-        //     interest,
-        //     username: name,
-        //     comment
-        // }).then(res => {
-        //     console.log(res.data)
-        // })
+        axios.post('https://realtimepoll-server.herokuapp.com/results', {
+            sessionId,
+            form,
+            content,
+            interest,
+            username: name,
+            comment
+        }).then(res => {
+            // TODO setTimeout in all windows
+            setTimeout(() => {this.setState({msg: ''})}, 5000)
+            this.setState({msg: res.data})
+        })
+        .catch(err => {
+            setTimeout(() => {this.setState({msg: ''})}, 5000)
+            this.setState({msg: 'Произошла ошибка'})
+        })
     }
 
     isValidSurvey() {
@@ -53,6 +64,7 @@ class Survey extends Component {
     render() {
         return (
             <div className='survey'>
+             <Link to='/admin'><button>Я - админ</button></Link>
                 {/* name */}
                 <InputWithLable 
                     inline={true}
@@ -77,6 +89,7 @@ class Survey extends Component {
                 />
                 {/* submit button */}
                 <SubmitButton text='Отправить' isValid={this.isValidSurvey} handleSubmit={this.handleSubmit} />
+                <div>{this.state.msg}</div>
             </div>
         );
     }

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import axios from 'axios'
 import './SessionForm.css'
+import auth0Client from '../../Auth'
 
 const mapStateToProps = store => {
     return {
@@ -40,10 +41,12 @@ class SessionForm extends Component {
             username,
             start,
             finish
+        },{
+            headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
         }).then(res => {
             this.setState({msg: res.data, isError: false})
         }).catch(err => {
-            this.setState({msg: err, isError: true})
+            this.setState({msg: 'Произошла ошибка', isError: true})
         })
     }
 
