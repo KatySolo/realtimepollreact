@@ -59,7 +59,7 @@ class AdminPanel extends Component {
                     <Route path="/admin/sessions/add" component={SessionForm}/>
                     <Route path="/admin/users/list" component={UsersList}/>
                     <Route path="/admin/users/add" component={UsersForm}/>
-                    <Route path="/admin/sessions/1"><SessionInfo id={1} /></Route>
+                    <Route path="/admin/sessions/:id" render={(props) => <SessionInfo {...props} />} />
                 </Switch>     
             </Router>
             </div>
