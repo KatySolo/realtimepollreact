@@ -1,6 +1,7 @@
 import React from 'react';
 import  Survey  from './components/Survey/Survey';
-import { AdminPanel } from './components/AdminPanel/AdminPanel';
+import AdminPanel from './components/AdminPanel/AdminPanel';
+import Callback from './Callback';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,10 +14,8 @@ function App() {
     <Router>
       <Switch>
           <Route path="/" exact component={Survey} />
-          {/* <Route path="/login" /> */}
-          <Route path="/admin">
-            <AdminPanel />
-          </Route>
+          <Route path="/admin" component={AdminPanel} />
+          <Route exact path='/callback' component={Callback}/>
       </Switch>
     </Router>
     </div>

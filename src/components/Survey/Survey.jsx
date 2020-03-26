@@ -5,6 +5,7 @@ import RatingWithLable from '../RatingWithLable/RaitingWithLable';
 import { ThreeColumnsLayout } from '../containers/ThreeColumnsLayout';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const mapStateToProps = store => {
@@ -77,6 +78,7 @@ class Survey extends Component {
                 />
                 {/* submit button */}
                 <SubmitButton text='Отправить' isValid={this.isValidSurvey} handleSubmit={this.handleSubmit} />
+                <Link to='/admin'><button>Я - админ</button></Link>
             </div>
         );
     }

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-js": "^9.12.2",
     "axios": "^0.19.2",
     "react": "^16.13.0",
     "react-calendar": "^3.0.0",
