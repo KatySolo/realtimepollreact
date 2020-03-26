@@ -1,10 +1,10 @@
 import React from 'react';
 import  Survey  from './components/Survey/Survey';
+import { AdminPanel } from './components/AdminPanel/AdminPanel';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -12,14 +12,10 @@ function App() {
     <div className="App">
     <Router>
       <Switch>
-         <Route path="/" exact>
-            <Survey />
-          </Route>
-          <Route path="/login">
-            {/* <LoginPanel /> */}
-          </Route>
+          <Route path="/" exact component={Survey} />
+          {/* <Route path="/login" /> */}
           <Route path="/admin">
-            {/* <AdminPanel /> */}
+            <AdminPanel />
           </Route>
       </Switch>
     </Router>
