@@ -15,7 +15,7 @@ function App() {
       <Switch>
           <Route path="/" exact component={Survey} />
           <Route path="/admin" component={AdminPanel} />
-          <Route exact path='/callback' component={Callback}/>
+          <Route path='/callback' component={Callback}/>
       </Switch>
     </Router>
     </div>
