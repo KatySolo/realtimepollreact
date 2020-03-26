@@ -1,5 +1,5 @@
 import React from 'react';
-import { RatingWithLable } from './RaitingWithLable';
+import RatingWithLable from './RaitingWithLable';
 
 export default {
     title: 'Rating With Lable',
