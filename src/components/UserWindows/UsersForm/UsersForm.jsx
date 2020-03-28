@@ -9,7 +9,7 @@ const mapStateToProps = state => {
     return {
         name: state.user.name
     };
-}
+};
 
 class UsersForm extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class UsersForm extends Component {
         this.state={
             msg: '',
             isError: false
-        }
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit() {
@@ -30,17 +30,17 @@ class UsersForm extends Component {
         }).catch(err => {
             this.setState({msg: 'Такой пользователь существует', isError: true})
         })
-       
+
     }
 
     render(){
-        // TODO clear state after login + clean form 
+        // TODO clear state after login + clean form
         return (
             <div className='usersForm'>
                 <InputWithLable lable='Введите имя нового пользователя' id='name'/>
-                <button 
+                <button
                     className='sendNewUserButton'
-                    disabled={!this.props.name} 
+                    disabled={!this.props.name}
                     onClick={this.handleSubmit}>
                     Создать
                 </button>

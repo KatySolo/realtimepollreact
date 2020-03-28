@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import InputWithLable from '../InputWithLable/InputWithLable';
 import { SelectorWithLable } from '../SelectorWithLable/SelectorWithLable';
 import RatingWithLable from '../RatingWithLable/RaitingWithLable';
-import { ThreeColumnsLayout } from '../containers/ThreeColumnsLayout';
+import { ThreeColumnsLayout } from '../layouts/ThreeColumns/ThreeColumnsLayout';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -31,7 +31,7 @@ class Survey extends Component {
         this.isValidSurvey = this.isValidSurvey.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    
+
      handleSubmit() {
         const { sessionId, form, content, interest, name, comment } = this.props;
         console.log(sessionId, form, content, interest, name, comment);
@@ -66,12 +66,12 @@ class Survey extends Component {
             <div className='survey'>
              <Link to='/admin'><button>Я - админ</button></Link>
                 {/* name */}
-                <InputWithLable 
+                <InputWithLable
                     inline={true}
                     id="name"
-                    lable="Введите имя" 
+                    lable="Введите имя"
                     inputValue={this.props.name}
-                /> 
+                />
                 {/* session selector */}
                 <SelectorWithLable lable="Выбирете лекцию" sessions={this.props.sessions}/>
                 {/* form, interest, content */}
@@ -81,10 +81,10 @@ class Survey extends Component {
                     <RatingWithLable lable='Содержание' id='content' inputValue={this.props.content} />
                 </ThreeColumnsLayout>
                 {/* comment */}
-                <InputWithLable 
+                <InputWithLable
                     inline={false}
                     id="comment"
-                    lable="Введите коментарии, что понравилось, а что нужно подтянуть" 
+                    lable="Введите коментарии, что понравилось, а что нужно подтянуть"
                     inputValue={this.props.comment}
                 />
                 {/* submit button */}

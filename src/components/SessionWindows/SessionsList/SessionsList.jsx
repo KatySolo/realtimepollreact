@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './SessionsList.css';
+import './styles.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';

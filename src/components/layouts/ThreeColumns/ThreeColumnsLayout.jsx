@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './ThreeColumns.css';
+import './styles.css';
 
 export class ThreeColumnsLayout extends Component {
     render(){

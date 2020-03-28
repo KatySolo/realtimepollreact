@@ -1,11 +1,11 @@
 import React,  { Component } from 'react';
-import InputWithLable from '../InputWithLable/InputWithLable';
-import { DatePicker } from '../DatePicker/DatePicker';
+import InputWithLable from '../../InputWithLable/InputWithLable';
+import { DatePicker } from '../../DatePicker/DatePicker';
 import { connect } from 'react-redux';
-import SubmitButton from '../SubmitButton/SubmitButton';
+import SubmitButton from '../../SubmitButton/SubmitButton';
 import axios from 'axios'
-import './SessionForm.css'
-import auth0Client from '../../Auth'
+import './styles.css'
+import auth0Client from '../../../Auth'
 
 const mapStateToProps = store => {
     return {
@@ -14,7 +14,7 @@ const mapStateToProps = store => {
         start: store.session.start,
         finish: store.session.finish
     }
-}
+};
 
 class SessionForm extends Component {
     constructor(props) {

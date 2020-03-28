@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './styles.css';
 
 export class MenuItem extends Component {
@@ -7,8 +6,8 @@ export class MenuItem extends Component {
         super(props);
         this.state = {
             isSubMenu: this.props.children !== undefined,
-            isClicked: false 
-        }
+            isClicked: false
+        };
 
         this.handleEvent = this.handleEvent.bind(this);
     }
