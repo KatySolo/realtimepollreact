@@ -9,7 +9,7 @@ import { store } from '../../index';
  */
 export class SelectorWithLable extends Component {
 	componentDidMount() {
-		axios.get('https://realtimepoll-server.herokuapp.com/current')
+		axios.get(process.env.REACT_APP_URL + '/current')
 			.then(res => {
 				store.dispatch(setSessions(res.data));
 			});
