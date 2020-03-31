@@ -8,6 +8,9 @@ const mapDispatchToProps = dispatch => {
 	};
 };
 
+/**
+ * Implementation for DatePicker Fabric for finish date
+ */
 class FinishDatePicker extends Component {
 	constructor(props) {
 		super(props);
@@ -20,10 +23,10 @@ class FinishDatePicker extends Component {
 		return(
 			<div className="input">
 				<span className="inputName">{this.props.lable}</span>
-				<input 
-					className="inputInline" 
-					type='datetime-local' 
-					value={this.state.date} 
+				<input
+					className="inputInline"
+					type='datetime-local'
+					value={this.state.date}
 					onChange={ value => this.setState({ date: value.currentTarget.value }, () => this.props.setSessionFinish(this.state.date))}
 				/>
 			</div>

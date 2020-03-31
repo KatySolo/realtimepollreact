@@ -3,6 +3,9 @@ import './styles.css';
 import axios  from 'axios';
 import Loader from 'react-loader-spinner';
 
+/**
+ * Component for user list window
+ */
 export class UsersList extends Component {
 	constructor(props) {
 		super(props);

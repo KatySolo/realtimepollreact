@@ -9,6 +9,9 @@ const mapDispatchToProps = dispatch => {
 	};
 };
 
+/**
+ * Implementation for RaitingWithLable Fabric for interest raiting
+ */
 class InterestRaiting extends Component {
 	render(){
 		return (<RaitingTemplate {...this.props}/>);

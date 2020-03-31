@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './styles.css';
 
+/**
+ * Component for menu item
+ */
 export class MenuItem extends Component {
 	constructor(props) {
 		super(props);

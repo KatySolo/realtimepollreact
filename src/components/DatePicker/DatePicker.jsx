@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Start from './childrens/Start';
 import Finish from './childrens/Finish';
 
+/**
+ *Component-fabric for DatePicker component
+ */
 export class DatePicker extends Component {
 	convertToTimeString(input) {
 		const result = input.match(/\d{2,4}/g);
@@ -12,8 +15,8 @@ export class DatePicker extends Component {
 		switch (this.props.id) {
 		case 'start':
 			return (<Start {...this.props} converter={this.convertToTimeString} />);
-            
-		case 'finish': 
+
+		case 'finish':
 			return (<Finish {...this.props} converter={this.convertToTimeString} />);
 
 		default:

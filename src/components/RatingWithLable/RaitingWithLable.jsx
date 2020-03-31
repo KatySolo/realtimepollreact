@@ -4,6 +4,9 @@ import FormRaiting from './childrens/Form';
 import ContentRaiting from './childrens/Content';
 import InterestRaiting from './childrens/Interest';
 
+/**
+ *Component-fabric for RatingWithLable component
+ */
 export default class RatingWithLable extends Component {
 	render(){
 		switch(this.props.id) {

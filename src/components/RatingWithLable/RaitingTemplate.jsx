@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './styles.css';
 
+/**
+ * Template for RaitingWithLable components
+ */
 export class RaitingTemplate extends Component {
 	constructor(props) {
 		super(props);
@@ -23,11 +26,11 @@ export class RaitingTemplate extends Component {
 		return (
 			<div className="rating">
 				<span className="ratingName" id={id}>{lable}</span>
-				<input 
-					className={isValid ? 'ratingInput' : 'ratingInput invalid'} 
-					placeholder='5' 
-					type='number' 
-					min='1' 
+				<input
+					className={isValid ? 'ratingInput' : 'ratingInput invalid'}
+					placeholder='5'
+					type='number'
+					min='1'
 					max='10'
 					value={inputValue}
 					onChange={value => this.isValidValue(value.target.value)}

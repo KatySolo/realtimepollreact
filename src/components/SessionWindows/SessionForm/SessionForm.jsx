@@ -16,6 +16,9 @@ const mapStateToProps = store => {
 	};
 };
 
+/**
+ * Component for session form window
+ */
 class SessionForm extends Component {
 	constructor(props) {
 		super(props);

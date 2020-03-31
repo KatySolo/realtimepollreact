@@ -5,7 +5,9 @@ import CommentInput from './childrens/Comment';
 import SessionName from './childrens/SessionName';
 import SessionLector from './childrens/SessionLector';
 
-
+/**
+ *Component-fabric for InputWithLable component
+ */
 export default class InputWithLable extends Component {
 	render(){
 		switch(this.props.id) {

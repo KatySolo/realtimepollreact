@@ -21,6 +21,9 @@ const mapStateToProps = store => {
 	};
 };
 
+/**
+ * Component for survey
+ */
 class Survey extends Component {
 	constructor(props) {
 		super(props);

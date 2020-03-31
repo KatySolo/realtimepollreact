@@ -11,6 +11,9 @@ const mapStateToProps = state => {
 	};
 };
 
+/**
+ * Component for user form window
+ */
 class UsersForm extends Component {
 	constructor(props) {
 		super(props);

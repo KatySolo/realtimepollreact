@@ -4,6 +4,9 @@ import axios from 'axios';
 import { setSessions, setSessionId } from '../../actions/sessionActions';
 import { store } from '../../index';
 
+/**
+ * Component for selector with lable
+ */
 export class SelectorWithLable extends Component {
 	componentDidMount() {
 		axios.get('https://realtimepoll-server.herokuapp.com/current')

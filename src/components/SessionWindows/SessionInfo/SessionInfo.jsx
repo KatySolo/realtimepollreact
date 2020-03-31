@@ -3,6 +3,9 @@ import './styles.css';
 import axios from 'axios';
 import Loader from 'react-loader-spinner';
 
+/**
+ * Component for session info window
+ */
 export class SessionInfo extends Component {
 	constructor(props) {
 		super(props);

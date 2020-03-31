@@ -12,6 +12,9 @@ import {
 } from 'react-router-dom';
 import auth0Client from '../../Auth';
 
+/**
+ * Component for admin panel
+ */
 class AdminPanel extends Component {
 	logout() {
 		// TODO it check once but after its not -> clear all cookies
