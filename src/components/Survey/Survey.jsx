@@ -38,8 +38,7 @@ class Survey extends Component {
 	handleSubmit() {
 		const { sessionId, form, content, interest, name, comment } = this.props;
 		console.log(sessionId, form, content, interest, name, comment);
-		// TODO on when ready
-		axios.post('http://localhost:8080/results', {
+		axios.post('https://realtimepoll-server.herokuapp.com/results', {
 			sessionId,
 			form,
 			content,

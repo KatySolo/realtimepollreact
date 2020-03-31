@@ -39,7 +39,7 @@ class SessionForm extends Component {
 	handleSubmit() {
 		const { title, username, start, finish } = this.props;
 
-		axios.post('http://localhost:8080/session', {
+		axios.post('https://realtimepoll-server.herokuapp.com/session', {
 			title,
 			username,
 			start,

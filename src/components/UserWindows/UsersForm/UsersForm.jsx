@@ -24,7 +24,7 @@ class UsersForm extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	handleSubmit() {
-		axios.post('http://localhost:8080/user',{
+		axios.post('https://realtimepoll-server.herokuapp.com/user',{
 			name: this.props.name
 		},{
 			headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
