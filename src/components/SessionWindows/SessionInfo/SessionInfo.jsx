@@ -24,7 +24,7 @@ export class SessionInfo extends Component {
 
 	componentDidMount(){
 		const { id } = this.props.match.params;
-		axios.get(`https://realtimepoll-server.herokuapp.com/results?id=${id}`)
+		axios.get(`${ process.env.REACT_APP_URL }/results?id=${id}`)
 			.then(res => {
 				this.setState({
 					isDataReady: true,

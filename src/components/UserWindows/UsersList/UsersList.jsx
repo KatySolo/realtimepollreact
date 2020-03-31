@@ -17,7 +17,7 @@ export class UsersList extends Component {
 	}
 
 	componentDidMount(){
-		axios.get('https://realtimepoll-server.herokuapp.com/users')
+		axios.get(process.env.REACT_APP_URL + '/users')
 			.then(res => {
 				this.setState({ users: res.data.users, totalNumber: res.data.totalNumber, dataIsFetched: true });
 			});

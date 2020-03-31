@@ -38,7 +38,7 @@ export class SessionsList extends Component {
 	}
 
 	fetchData() {
-		axios.get('https://realtimepoll-server.herokuapp.com/sessions')
+		axios.get(process.env.REACT_APP_URL + '/sessions')
 			.then(res => {
 				this.setState({ results: res.data, isDataReady: true, TTU: UPDATE_STEP });
 			});
