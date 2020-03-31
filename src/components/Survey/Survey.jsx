@@ -37,7 +37,6 @@ class Survey extends Component {
 
 	handleSubmit() {
 		const { sessionId, form, content, interest, name, comment } = this.props;
-		// console.log(sessionId, form, content, interest, name, comment);
 		axios.post(process.env.REACT_APP_URL + '/results', {
 			sessionId,
 			form,
@@ -59,7 +58,7 @@ class Survey extends Component {
 		const { form, interest, content, sessionId } = this.props;
 		const isValidParam = x => x > 0 && x < 11;
 
-		return isValidParam(form) && isValidParam(content) && isValidParam(interest) && sessionId !== -1;
+		return isValidParam(form) && isValidParam(content) && isValidParam(interest) && sessionId !== -1 && name !== '';
 	}
 
 	render() {
