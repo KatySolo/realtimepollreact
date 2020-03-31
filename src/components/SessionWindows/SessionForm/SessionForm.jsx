@@ -39,7 +39,7 @@ class SessionForm extends Component {
 	handleSubmit() {
 		const { title, username, start, finish } = this.props;
 
-		axios.post('https://realtimepoll-server.herokuapp.com/session', {
+		axios.post('http://localhost:8080/session', {
 			title,
 			username,
 			start,
@@ -47,9 +47,11 @@ class SessionForm extends Component {
 		},{
 			headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
 		}).then(res => {
+			setTimeout(() => this.setState({ msg: '' }), 5000);
 			this.setState({ msg: res.data, isError: false });
-		}).catch(() => {
-			this.setState({ msg: 'Произошла ошибка', isError: true });
+		}).catch((error) => {
+			setTimeout(() => this.setState({ msg: '', isError: false }), 5000);
+			this.setState({ msg: error.response.data.text || 'Произошла ошибка', isError: true });
 		});
 	}
 

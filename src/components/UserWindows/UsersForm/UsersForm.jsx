@@ -24,14 +24,16 @@ class UsersForm extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	handleSubmit() {
-		axios.post('https://realtimepoll-server.herokuapp.com/user',{
+		axios.post('http://localhost:8080/user',{
 			name: this.props.name
 		},{
 			headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
 		}).then(res => {
+			setTimeout(() => {this.setState({ msg: '' });}, 5000);
 			this.setState({ msg: res.data, isError: false });
-		}).catch(() => {
-			this.setState({ msg: 'Такой пользователь существует', isError: true });
+		}).catch((error) => {
+			setTimeout(() => {this.setState({ msg: '', isError: false });}, 5000);
+			this.setState({ msg: error.response.data.text || 'Такой пользователь существует', isError: true });
 		});
 
 	}

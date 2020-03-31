@@ -39,7 +39,7 @@ class Survey extends Component {
 		const { sessionId, form, content, interest, name, comment } = this.props;
 		console.log(sessionId, form, content, interest, name, comment);
 		// TODO on when ready
-		axios.post('https://realtimepoll-server.herokuapp.com/results', {
+		axios.post('http://localhost:8080/results', {
 			sessionId,
 			form,
 			content,
@@ -47,13 +47,12 @@ class Survey extends Component {
 			username: name,
 			comment
 		}).then(res => {
-			// TODO setTimeout in all windows
 			setTimeout(() => {this.setState({ msg: '' });}, 5000);
 			this.setState({ msg: res.data });
 		})
-			.catch(() => {
+			.catch((error) => {
 				setTimeout(() => {this.setState({ msg: '' });}, 5000);
-				this.setState({ msg: 'Произошла ошибка' });
+				this.setState({ msg: error.response.data.text || 'Произошла ошибка' });
 			});
 	}
 
