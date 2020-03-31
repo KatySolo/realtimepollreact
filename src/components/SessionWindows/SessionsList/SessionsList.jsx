@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 
+const UPDATE_STEP = 60000;
 /**
  * Component for session list window
  */
@@ -12,15 +13,44 @@ export class SessionsList extends Component {
 		super(props);
 		this.state = {
 			results: [],
-			isDataReady: false
+			isDataReady: false,
+			TTU: UPDATE_STEP
 		};
+
+		this.fetchData = this.fetchData.bind(this);
+		this.manualFetch = this.manualFetch.bind(this);
 	}
 
 	componentDidMount() {
+		this.fetchData();
+		this.timer = setInterval(() => {
+			this.setState({ TTU: this.state.TTU - 1000 });
+		}, 1000);
+		this.interval = setInterval(() => {
+			this.setState({ isDataReady: false }, () => this.fetchData());
+		}, UPDATE_STEP);
+
+	}
+
+	componentWillUnmount() {
+		clearTimeout(this.interval);
+		clearTimeout(this.timer);
+	}
+
+	fetchData() {
 		axios.get('https://realtimepoll-server.herokuapp.com/sessions')
 			.then(res => {
-				this.setState({ results: res.data, isDataReady: true });
+				this.setState({ results: res.data, isDataReady: true, TTU: UPDATE_STEP });
 			});
+	}
+
+	manualFetch(e) {
+		e.preventDefault();
+		clearTimeout(this.interval);
+		this.interval = setInterval(() => {
+			this.setState({ isDataReady: false }, () => this.fetchData());
+		}, UPDATE_STEP);
+		this.setState({ isDataReady: false }, () => this.fetchData());
 	}
 
 	render() {
@@ -29,6 +59,8 @@ export class SessionsList extends Component {
 		} else {
 			return (
 				<div className="sessionsList">
+					<span> Следующее обновление списка через: { this.state.TTU / 1000 } секунд </span>
+					<button onClick={this.manualFetch}> Обновить результаты </button>
 					<table>
 						<thead>
 							<tr>

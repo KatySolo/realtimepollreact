@@ -27,7 +27,7 @@ class FinishDatePicker extends Component {
 					className="inputInline"
 					type='datetime-local'
 					value={this.state.date}
-					onChange={ value => this.setState({ date: value.currentTarget.value }, () => this.props.setSessionFinish(this.state.date))}
+					onChange={ value => this.setState({ date: value.currentTarget.value }, () => this.props.setSessionFinish(new Date(this.state.date)))}
 				/>
 			</div>
 		);

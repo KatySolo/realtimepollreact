@@ -7,6 +7,7 @@ const mapDispatchToProps = dispatch => {
 		setSessionStart: name => dispatch(setSessionStart(name))
 	};
 };
+
 /**
  * Implementation for DatePicker Fabric for start date
  */
@@ -26,7 +27,7 @@ class StartDatePicker extends Component {
 					className="inputInline"
 					type='datetime-local'
 					value={this.state.date}
-					onChange={value => this.setState({ date: value.currentTarget.value }, () => this.props.setSessionStart(this.state.date))}
+					onChange={value => this.setState({ date: value.currentTarget.value }, () => this.props.setSessionStart(new Date(this.state.date)))}
 				/>
 			</div>
 		);
