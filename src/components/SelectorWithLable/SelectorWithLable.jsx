@@ -9,6 +9,7 @@ import { store } from '../../index';
  */
 export class SelectorWithLable extends Component {
 	componentDidMount() {
+		console.log(process.env.REACT_APP_URL);
 		axios.get(process.env.REACT_APP_URL + '/current')
 			.then(res => {
 				store.dispatch(setSessions(res.data));

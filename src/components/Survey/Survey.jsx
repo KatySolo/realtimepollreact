@@ -55,7 +55,7 @@ class Survey extends Component {
 	}
 
 	isValidSurvey() {
-		const { form, interest, content, sessionId } = this.props;
+		const { form, interest, content, sessionId, name } = this.props;
 		const isValidParam = x => x > 0 && x < 11;
 
 		return isValidParam(form) && isValidParam(content) && isValidParam(interest) && sessionId !== -1 && name !== '';

@@ -1,5 +1,7 @@
 {
-  "env": {
-    "URL": "@url"
+  "build": {
+    "env": {
+      "REACT_APP_URL": "@react_app_url"
+    }
   }
 }
