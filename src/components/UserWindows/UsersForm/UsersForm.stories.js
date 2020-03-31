@@ -1,9 +1,9 @@
 import React from 'react';
-import { UsersForm } from './UsersFrom'
+import { UsersForm } from './UsersForm';
 
 export default {
-    title: 'Users Form',
-    component: UsersForm,
+	title: 'Users Form',
+	component: UsersForm,
 };
 
-export const OnlyInput = () => <UsersForm />
+export const OnlyInput = () => <UsersForm />;

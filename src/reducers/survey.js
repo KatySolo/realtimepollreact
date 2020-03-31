@@ -1,37 +1,37 @@
 const initialState = {
-    form: 1,
-    interest: 1,
-    content: 1,
-    comment: ''
-}
+	form: 1,
+	interest: 1,
+	content: 1,
+	comment: ''
+};
 
 export function surveyReducer(state = initialState, action) {
-    switch (action.type) {
-        case 'SURVEY/SET_INTEREST':
-        return {
-            ...state,
-            interest: action.payload
-        }
+	switch (action.type) {
+	case 'SURVEY/SET_INTEREST':
+		return {
+			...state,
+			interest: action.payload
+		};
 
-        case 'SURVEY/SET_FORM':
-        return {
-            ...state,
-            form: action.payload
-        }
+	case 'SURVEY/SET_FORM':
+		return {
+			...state,
+			form: action.payload
+		};
 
-        case 'SURVEY/SET_CONTENT':
-        return {
-            ...state,
-            content: action.payload
-        }
+	case 'SURVEY/SET_CONTENT':
+		return {
+			...state,
+			content: action.payload
+		};
 
-        case 'SURVEY/SET_COMMENT':
-        return {
-            ...state,
-            comment: action.payload
-        }
+	case 'SURVEY/SET_COMMENT':
+		return {
+			...state,
+			comment: action.payload
+		};
 
-        default:
-            return state;
-    }
+	default:
+		return state;
+	}
 }
