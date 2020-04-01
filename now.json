@@ -1,7 +1,8 @@
 {
   "build": {
     "env": {
-      "REACT_APP_URL": "@react_app_url"
+      "REACT_APP_URL": "@react_app_url",
+      "REACT_APP_URL_CALLBACK": "@react_app_url_callback"
     }
   }
 }
