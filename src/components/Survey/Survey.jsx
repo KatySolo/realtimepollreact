@@ -46,7 +46,7 @@ class Survey extends Component {
 			comment
 		}).then(res => {
 			setTimeout(() => {this.setState({ msg: '' });}, 5000);
-			this.setState({ msg: res.data });
+			this.setState({ msg: res.data.text });
 		})
 			.catch((error) => {
 				setTimeout(() => {this.setState({ msg: '' });}, 5000);
