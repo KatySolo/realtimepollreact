@@ -1,7 +1,9 @@
 .menu {
     display: flex;
-    width: fit-content;
-    /* border: 1px red solid; */
+    width: 65%;
     padding: 5px;
     height: fit-content;
+    justify-content: space-between;
 }
+
+

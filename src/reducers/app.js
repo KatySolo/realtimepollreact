@@ -1,5 +1,6 @@
 const initialState = {
-	color: 'green'
+	color: 'green',
+	section: ''
 };
 
 export function appReducer(state = initialState, action) {
@@ -8,6 +9,11 @@ export function appReducer(state = initialState, action) {
 		return {
 			...state,
 			color: action.payload
+		};
+	case 'APP/ADMIN/SET_SELECTION':
+		return {
+			...state,
+			section: action.payload
 		};
 
 	default:

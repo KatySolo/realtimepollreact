@@ -19,14 +19,15 @@ html, body {
     height: inherit;
 }
 
-.App {
+.App[class*="green"] {
     padding: 5%;
 }
 
-.App > div {
-    /*margin: 0 auto;*/
-    /*width: 100%;*/
-    height: fit-content;
-    max-height: 90%;
-    /*min-width: 1000px;*/
+.App[class*="yellow"] {
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.App > .adminPanel {
+    height: 100%;
 }

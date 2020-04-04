@@ -4,3 +4,10 @@ export function setColor (color) {
 		payload: color === 'green' || color === 'yellow' ? color : 'green'
 	};
 }
+
+export function setSection (section) {
+	return {
+		type: 'APP/ADMIN/SET_SELECTION',
+		payload: section
+	};
+}

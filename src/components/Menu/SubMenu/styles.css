@@ -1,8 +1,23 @@
 .submenu {
-    /* border: 1px dashed black; */
-    width: fit-content;
-    min-width: 100px;
-    position: absolute;
-    top: 2px;
-    left: -6px;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a > .menuItem {
+    margin-right: 20px;
+    padding: 1px;
+}
+
+a > .menuItem:hover {
+    border: 1px solid #E3DDCD;
+    padding: 0;
+}
+
+.submenuCont {
+    margin-top: 5px;
 }
