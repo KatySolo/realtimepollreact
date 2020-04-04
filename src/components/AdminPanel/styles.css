@@ -1,3 +1,29 @@
 .logout:hover {
     cursor: pointer;
 }
+
+.adminLogin {
+    background: white;
+    border: #1F6161 25px solid;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    justify-content: center;
+    font-size: 30px;
+    line-height: 40px;
+}
+
+hr {
+    border: 1px solid #7C8179;
+    width: 80%;
+}
+
+.login {
+    width: 20%;
+}
+
+.loginText {
+    padding: 5px;
+}

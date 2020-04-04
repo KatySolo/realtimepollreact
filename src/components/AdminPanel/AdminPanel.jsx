@@ -35,8 +35,9 @@ class AdminPanel extends Component {
 			this.props.setAppColor('green');
 			return (
 				<div className='adminLogin'>
-					<div>Страница достпуна только администратору. Уходите.</div>
-					<button onClick={auth0Client.signIn}>Пустите, я админ</button>
+					<div className='loginText'>Доступ к панели администратора ограничен</div>
+					<hr />
+					<button className='submitButton login' onClick={auth0Client.signIn}>Войти</button>
 				</div>
 
 			);
