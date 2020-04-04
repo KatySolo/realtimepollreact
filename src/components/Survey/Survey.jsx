@@ -7,6 +7,8 @@ import SubmitButton from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './styles.css';
+import { setColor } from '../../actions/appActions';
 
 
 const mapStateToProps = store => {
@@ -21,6 +23,12 @@ const mapStateToProps = store => {
 	};
 };
 
+const mapDispatchToProps = dispatch => {
+	return {
+		setAppColor: name => dispatch(setColor(name))
+	};
+};
+
 /**
  * Component for survey
  */
@@ -28,11 +36,13 @@ class Survey extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			msg: ''
+			msg: '',
+			type: 'none'
 		};
 
 		this.isValidSurvey = this.isValidSurvey.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.props.setAppColor('green');
 	}
 
 	handleSubmit() {
@@ -45,12 +55,12 @@ class Survey extends Component {
 			username: name,
 			comment
 		}).then(res => {
-			setTimeout(() => {this.setState({ msg: '' });}, 5000);
-			this.setState({ msg: res.data.text });
+			setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
+			this.setState({ msg: res.data.text, type: 'ok' });
 		})
 			.catch((error) => {
-				setTimeout(() => {this.setState({ msg: '' });}, 5000);
-				this.setState({ msg: error.response.data.text || 'Произошла ошибка' });
+				setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
+				this.setState({ msg: error.response.data.text || 'Произошла ошибка', type: 'err' });
 			});
 	}
 
@@ -64,16 +74,16 @@ class Survey extends Component {
 	render() {
 		return (
 			<div className='survey'>
-				<Link to='/admin'><button>Я - админ</button></Link>
+				{/*<Link to='/admin'><button>Я - админ</button></Link>*/}
 				{/* name */}
 				<InputWithLable
 					inline={true}
 					id="name"
-					lable="Введите имя"
+					lable="Имя"
 					inputValue={this.props.name}
 				/>
 				{/* session selector */}
-				<SelectorWithLable lable="Выбирете лекцию" sessions={this.props.sessions}/>
+				<SelectorWithLable lable="Лекция" sessions={this.props.sessions}/>
 				{/* form, interest, content */}
 				<ThreeColumnsLayout>
 					<RatingWithLable lable='Форма' id='form' inputValue={this.props.form} />
@@ -84,15 +94,19 @@ class Survey extends Component {
 				<InputWithLable
 					inline={false}
 					id="comment"
-					lable="Введите коментарии, что понравилось, а что нужно подтянуть"
+					lable="Комментарии к лекции"
 					inputValue={this.props.comment}
 				/>
 				{/* submit button */}
-				<SubmitButton text='Отправить' isValid={this.isValidSurvey} handleSubmit={this.handleSubmit} />
-				<div>{this.state.msg}</div>
+				<div className='footer'>
+					<SubmitButton text='Отправить' isValid={this.isValidSurvey} handleSubmit={this.handleSubmit} />
+					<div className={'msgResultBox ' + this.state.type}>
+						<div className='msgResultBox_text'>{this.state.msg}</div>
+					</div>
+				</div>
 			</div>
 		);
 	}
 }
 
-export default connect(mapStateToProps)(Survey);
+export default connect(mapStateToProps, mapDispatchToProps)(Survey);

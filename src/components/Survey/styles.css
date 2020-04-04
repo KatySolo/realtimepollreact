@@ -1,0 +1,40 @@
+.survey {
+    background: white;
+    border: #1F6161 25px solid;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: space-around;
+    justify-content: center;
+}
+
+.footer {
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.msgResultBox {
+    flex-grow: 1;
+    font-size: 30px;
+    line-height: 40px;
+    border-radius: 7px;
+    display: flex;
+    margin-left: 20px;
+}
+
+.msgResultBox_text {
+    padding: 5px;
+    width: fit-content;
+    margin: auto;
+}
+
+.err {
+    background: rgba(219, 0, 65, 0.6);;
+}
+
+.ok {
+    background: rgba(121, 222, 138, 0.3)
+}

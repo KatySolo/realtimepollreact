@@ -1,0 +1,32 @@
+.green {
+    background: #78C9C1;
+}
+
+.yellow {
+    background: #F1E4A7;
+}
+
+body {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+#root,
+.App {
+    height: inherit;
+}
+
+.App {
+    padding: 5%;
+}
+
+.App > div {
+    /*margin: 0 auto;*/
+    /*width: 100%;*/
+    height: fit-content;
+    max-height: 90%;
+    /*min-width: 1000px;*/
+}

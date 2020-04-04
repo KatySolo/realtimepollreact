@@ -1,11 +1,21 @@
-.submitButton {
-    font-size: 15px;
-    border-radius: 3px 3px;
-    border: 1px solid gray ;
-    background: white;
-    margin: 0;
+.buttonContainer {
+    /*padding: 5px;*/
+    width: 30%;
+    font-size: 30px;
+    line-height: 40px;
 }
 
-.buttonContainer {
-    padding: 5px;
+.submitButton {
+    border-radius: 7px;
+    background: #F1E4A7;
+    font-size: inherit;
+    line-height: inherit;
+    width: 100%;
+    height: 100%;
+    padding: 10px 0;
+    border: none;
+}
+
+.submitButton:disabled {
+    background: #dad5c8;
 }

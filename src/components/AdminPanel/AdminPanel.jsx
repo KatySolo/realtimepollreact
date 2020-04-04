@@ -11,6 +11,14 @@ import {
 	withRouter
 } from 'react-router-dom';
 import auth0Client from '../../Auth';
+import { setColor } from '../../actions/appActions';
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = dispatch => {
+	return {
+		setAppColor: name => dispatch(setColor(name))
+	};
+};
 
 /**
  * Component for admin panel
@@ -24,14 +32,16 @@ class AdminPanel extends Component {
 
 	render() {
 		if (!auth0Client.isAuthenticated()) {
+			this.props.setAppColor('green');
 			return (
-				<div>
+				<div className='adminLogin'>
 					<div>Страница достпуна только администратору. Уходите.</div>
 					<button onClick={auth0Client.signIn}>Пустите, я админ</button>
 				</div>
 
 			);
 		} else {
+			this.props.setAppColor('yellow');
 			return (
 				<div className="adminPanel">
 					<Router>
@@ -66,4 +76,4 @@ class AdminPanel extends Component {
 	}
 }
 
-export default withRouter(AdminPanel);
+export default withRouter(connect(null, mapDispatchToProps)(AdminPanel));
