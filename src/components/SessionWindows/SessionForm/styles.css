@@ -9,17 +9,6 @@
     margin-top: 30px;
 }
 
-.msgBox {
-    height: fit-content;
-    align-self: center;
-    padding: 2px;
-}
-
-.error {
-    border: 2px solid rgba(200, 0, 0, 0.5);
-    background-color:rgba(247, 147, 147, 0.5);
-}
-
 .sessionName,
 .lectorName,
 .date_container,
