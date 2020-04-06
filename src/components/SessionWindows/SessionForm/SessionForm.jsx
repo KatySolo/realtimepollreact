@@ -24,7 +24,7 @@ class SessionForm extends Component {
 		super(props);
 		this.state={
 			msg: '',
-			isError: false
+			type: 'none'
 		};
 
 		this.isValidForm = this.isValidForm.bind(this);
@@ -47,24 +47,29 @@ class SessionForm extends Component {
 		},{
 			headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
 		}).then(res => {
-			setTimeout(() => this.setState({ msg: '' }), 5000);
-			this.setState({ msg: res.data, isError: false });
+			setTimeout(() => this.setState({ msg: '', type: 'none' }), 5000);
+			this.setState({ msg: res.data, type: 'ok' });
 		}).catch((error) => {
-			setTimeout(() => this.setState({ msg: '', isError: false }), 5000);
-			this.setState({ msg: error.response.data.text || 'Произошла ошибка', isError: true });
+			setTimeout(() => this.setState({ msg: '', type: 'none' }), 5000);
+			this.setState({ msg: error.response.data.text || 'Произошла ошибка', type: 'err' });
 		});
 	}
 
 	render(){
 		return (
 			<div className="sessionForm">
-				<InputWithLable lable="Название сессии" id='sessionName' />
-				<InputWithLable lable="Имя лектора" id='sessionLector' />
-				<DatePicker lable="Начало сессии" id="start" />
-				<DatePicker lable="Конец сессии" id="finish" />
-				<SubmitButton text="Создать новую сессию" isValid={this.isValidForm} handleSubmit={this.handleSubmit} />
-				<div className={this.state.isError ? 'msgBox error' : 'msgBox correct'}>
-					{this.state.msg}
+				<div className='formTitle'>Добавить сессию</div>
+				<InputWithLable lable="Название" id='sessionName' />
+				<InputWithLable lable="Лектор" id='sessionLector' />
+				<div className='date_container'>
+					<DatePicker lable="Начало" id="start" />
+					<DatePicker lable="Конец" id="finish" />
+				</div>
+				<div className='footer'>
+					<SubmitButton text="Добавить" isValid={this.isValidForm} handleSubmit={this.handleSubmit} />
+					<div className={'msgResultBox ' + this.state.type}>
+						<div className='msgResultBox_text'>{this.state.msg}</div>
+					</div>
 				</div>
 			</div>
 		);

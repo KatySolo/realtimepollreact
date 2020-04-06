@@ -21,7 +21,7 @@ class FinishDatePicker extends Component {
 
 	render() {
 		return(
-			<div className="input">
+			<div className="input finishDate">
 				<span className="inputName">{this.props.lable}</span>
 				<input
 					className="inputInline"

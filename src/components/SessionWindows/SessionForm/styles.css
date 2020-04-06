@@ -1,11 +1,36 @@
+.sessionForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-content: start;
+}
+
+.footer {
+    margin-top: 30px;
+}
+
 .msgBox {
     height: fit-content;
     align-self: center;
-    /* margin-left: 10px; */
     padding: 2px;
 }
 
 .error {
     border: 2px solid rgba(200, 0, 0, 0.5);
     background-color:rgba(247, 147, 147, 0.5);
+}
+
+.sessionName,
+.lectorName,
+.date_container,
+.startDate,
+.finishDate {
+    display: flex
+}
+
+.formTitle {
+    font-size: 45px;
+    padding: 5px;
+    width: fit-content;
+    margin: 10px 0 30px 0;
 }
