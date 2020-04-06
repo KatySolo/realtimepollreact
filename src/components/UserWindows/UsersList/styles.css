@@ -1,7 +1,8 @@
 ol {
-    padding-left: 30px;
-    margin: 10px;
+    /*padding-left: 30px;*/
+    margin-top: 30px;
     width: fit-content;
+    box-sizing: border-box;
 }
 
 li {
@@ -10,4 +11,19 @@ li {
 
 .totalNumber {
     display: flex;
+    padding: 0 5px 5px 5px;
+    width: fit-content;
+}
+
+.totalCounter {
+    margin-left: 10px;
+}
+
+.usersList > .formTitle {
+    margin-bottom: 0;
+}
+
+.usersList {
+    display: flex;
+    flex-direction: column;
 }
