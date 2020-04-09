@@ -43,18 +43,20 @@ class UsersForm extends Component {
 		return (
 			<div className='usersForm'>
 				<div className='formTitle'>Добавить сессию</div>
-				<InputWithLable lable='Имя' id='name'/>
-				<div className='footer'>
-					<div className='buttonContainer'>
-						<button
-							className='sendNewUserButton submitButton'
-							disabled={!this.props.name}
-							onClick={this.handleSubmit}>
+				<div className='formContent'>
+					<InputWithLable lable='Имя' id='name'/>
+					<div className='footer'>
+						<div className='buttonContainer'>
+							<button
+								className='sendNewUserButton submitButton'
+								disabled={!this.props.name}
+								onClick={this.handleSubmit}>
 							Создать
-						</button>
-					</div>
-					<div className={'msgResultBox ' + this.state.type}>
-						<div className='msgResultBox_text'>{this.state.msg}</div>
+							</button>
+						</div>
+						<div className={'msgResultBox ' + this.state.type}>
+							<div className='msgResultBox_text'>{this.state.msg}</div>
+						</div>
 					</div>
 				</div>
 			</div>

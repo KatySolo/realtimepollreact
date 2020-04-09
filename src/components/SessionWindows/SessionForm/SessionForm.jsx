@@ -59,16 +59,18 @@ class SessionForm extends Component {
 		return (
 			<div className="sessionForm">
 				<div className='formTitle'>Добавить сессию</div>
-				<InputWithLable lable="Название" id='sessionName' />
-				<InputWithLable lable="Лектор" id='sessionLector' />
-				<div className='date_container'>
-					<DatePicker lable="Начало" id="start" />
-					<DatePicker lable="Конец" id="finish" />
-				</div>
-				<div className='footer'>
-					<SubmitButton text="Добавить" isValid={this.isValidForm} handleSubmit={this.handleSubmit} />
-					<div className={'msgResultBox ' + this.state.type}>
-						<div className='msgResultBox_text'>{this.state.msg}</div>
+				<div className='formContent'>
+					<InputWithLable lable="Название" id='sessionName' />
+					<InputWithLable lable="Лектор" id='sessionLector' />
+					<div className='date_container'>
+						<DatePicker lable="Начало" id="start" />
+						<DatePicker lable="Конец" id="finish" />
+					</div>
+					<div className='footer'>
+						<SubmitButton text="Добавить" isValid={this.isValidForm} handleSubmit={this.handleSubmit} />
+						<div className={'msgResultBox ' + this.state.type}>
+							<div className='msgResultBox_text'>{this.state.msg}</div>
+						</div>
 					</div>
 				</div>
 			</div>

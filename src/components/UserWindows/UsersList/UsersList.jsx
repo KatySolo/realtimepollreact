@@ -27,23 +27,25 @@ export class UsersList extends Component {
 		return (
 			<div className='usersList'>
 				<div className='formTitle'>Список пользователей</div>
-				<div className='totalNumber'>
-					<b>Всего пользователей:</b>
-					<span className='totalCounter'>{ this.state.totalNumber }</span>
-					{/*{this.state.dataIsFetched ? this.state.totalNumber : <Loader color='black' type="Bars" width={20} height={20}/>}*/}
+				<div className='formContent'>
+					<div className='totalNumber'>
+						<b>Всего пользователей:</b>
+						<span className='totalCounter'>{ this.state.totalNumber }</span>
+						{/*{this.state.dataIsFetched ? this.state.totalNumber : <Loader color='black' type="Bars" width={20} height={20}/>}*/}
+					</div>
+					{/*{!this.state.dataIsFetched && (*/}
+					{/*	<Loader type="Bars" color="black"/>*/}
+					{/*)}*/}
+					{/*{this.state.dataIsFetched && (*/}
+					<ol>
+						{this.state.users.map((user, key) => {
+							return (
+								<li key={key}>{user.name}</li>
+							);
+						})}
+					</ol>
+					{/*)}*/}
 				</div>
-				{/*{!this.state.dataIsFetched && (*/}
-				{/*	<Loader type="Bars" color="black"/>*/}
-				{/*)}*/}
-				{/*{this.state.dataIsFetched && (*/}
-				<ol>
-					{this.state.users.map((user, key) => {
-						return (
-							<li key={key}>{user.name}</li>
-						);
-					})}
-				</ol>
-				{/*)}*/}
 			</div>
 		);
 	}

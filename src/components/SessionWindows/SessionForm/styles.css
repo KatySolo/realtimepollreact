@@ -14,10 +14,3 @@
 .finishDate {
     display: flex
 }
-
-.formTitle {
-    font-size: 45px;
-    padding: 5px;
-    width: fit-content;
-    margin: 10px 0 30px 0;
-}
