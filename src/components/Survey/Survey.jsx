@@ -5,7 +5,6 @@ import RatingWithLable from '../RatingWithLable/RaitingWithLable';
 import { ThreeColumnsLayout } from '../layouts/ThreeColumns/ThreeColumnsLayout';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './styles.css';
 import { setColor } from '../../actions/appActions';
@@ -74,8 +73,6 @@ class Survey extends Component {
 	render() {
 		return (
 			<div className='survey'>
-				{/*<Link to='/admin'><button>Я - админ</button></Link>*/}
-				{/* name */}
 				<InputWithLable
 					inline={true}
 					id="name"
