@@ -32,6 +32,10 @@ hr {
     padding: 5px;
 }
 
+.footer {
+    margin-top: 30px;
+}
+
 .logout:hover {
     cursor: pointer;
 }

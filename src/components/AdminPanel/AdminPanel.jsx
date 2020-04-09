@@ -32,7 +32,7 @@ class AdminPanel extends Component {
 	}
 
 	render() {
-		if (auth0Client.isAuthenticated()) {
+		if (!auth0Client.isAuthenticated()) {
 			this.props.setAppColor('green');
 			return (
 				<div className='adminLogin'>
