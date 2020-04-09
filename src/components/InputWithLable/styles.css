@@ -1,9 +1,17 @@
 .input {
-    /* border: 1px solid black; */
     padding: 0 0 5px 0;
     width: fit-content;
     font-size: 30px;
     line-height: 40px;
+}
+
+.comment {
+    width: 100%;
+}
+
+.comment > textarea {
+    resize: none;
+    width: 100%;
 }
 
 .name {
@@ -39,15 +47,6 @@
     outline: none;
 }
 
-.comment {
-    width: 100%;
-}
-
-.comment > textarea {
-    resize: none;
-    width: 100%;
-}
-
 .inputNotInline {
     font-size: inherit;
     line-height: inherit;
@@ -63,3 +62,5 @@
 .inputNotInline:focus {
     outline: none;
 }
+
+

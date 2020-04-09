@@ -1,44 +1,10 @@
-.logout:hover {
-    cursor: pointer;
-}
-
-.adminLogin {
-    background: white;
-    border: #1F6161 25px solid;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: space-around;
-    justify-content: center;
-    font-size: 30px;
-    line-height: 40px;
-}
-
+/*Styling tags*/
 hr {
     border: 1px solid #7C8179;
     width: 80%;
 }
 
-.login {
-    width: 20%;
-}
-
-.formContent {
-    padding: 5px;
-}
-
-.formTitle {
-    font-size: 45px;
-    padding: 5px;
-    width: fit-content;
-    margin: 10px 0 30px 0;
-}
-
-.loginText {
-    padding: 5px;
-}
-
+/*Styling container*/
 .adminPanel {
     background: white;
     border-top: #978A4C 25px solid;
@@ -53,7 +19,21 @@ hr {
     line-height: 40px;
     overflow-y: scroll;
     position: fixed;
-    z-index: 99999;
+}
+
+.formTitle {
+    font-size: 45px;
+    padding: 5px;
+    width: fit-content;
+    margin: 10px 0 30px 0;
+}
+
+.formContent {
+    padding: 5px;
+}
+
+.logout:hover {
+    cursor: pointer;
 }
 
 .header {

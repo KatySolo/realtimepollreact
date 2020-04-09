@@ -3,29 +3,20 @@
     flex-direction: column;
 }
 
-.footer {
+.sessionForm .footer {
     margin-top: 30px;
 }
 
 .sessionName,
-.lectorName,
-.startDate,
-.finishDate {
-    display: flex
-}
-
-.sessionName,
 .lectorName {
+    display: flex;
     width: 40%
 }
 
-/*.startDate > .inputInline,*/
-/*.finishDate > .inputInline {*/
-/*     width: 100%;*/
-/*}*/
 
 .startDate,
 .finishDate{
+    display: flex;
     width: fit-content;
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './styles.css';
+import './adminPanel.css';
+import './adminLogin.css'
 import { Menu, MenuItem, SubMenu } from '../Menu';
 import { SessionsList, SessionForm, SessionInfo } from '../SessionWindows';
 import { UsersList, UsersForm } from '../UserWindows';

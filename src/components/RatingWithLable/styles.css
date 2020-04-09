@@ -1,11 +1,8 @@
 .rating {
-    /* border: 1px black solid; */
     width: 90%;
     min-width: fit-content;
-    /*padding: 5px;*/
     display: flex;
     justify-content: center;
-    /*justify-content: space-around;*/
     font-size: 30px;
     line-height: 40px;
 }
@@ -21,14 +18,12 @@
     border-bottom: 1px solid #7C8179;
 }
 
-/* Chrome, Safari, Edge, Opera */
 .ratingInput::-webkit-outer-spin-button,
 .ratingInput::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-/* Firefox */
 .ratingInput[type=number] {
     -moz-appearance: textfield;
 }
