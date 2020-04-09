@@ -19,3 +19,11 @@
 .submitButton:disabled {
     background: #dad5c8;
 }
+
+.submitButton:focus {
+    outline: none;
+}
+
+.submitButton:hover {
+    cursor: pointer;
+}

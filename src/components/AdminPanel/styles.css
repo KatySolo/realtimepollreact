@@ -42,7 +42,7 @@ hr {
     line-height: 40px;
     overflow-y: scroll;
     position: fixed;
-    ;
+    z-index: 99999;
 }
 
 .header {
@@ -51,12 +51,13 @@ hr {
     position: fixed;
     width: 90%;
     height: fit-content;
-    background: linear-gradient(
-            /*#c6bb9b*/
-            rgb(215, 204, 172) 0%,
-            rgba(233, 222, 190, 0.5) 50%,
-            rgba(255, 255, 255, 0.2) 100%
-    );
+    /*background: linear-gradient(*/
+    /*        !*#c6bb9b*!*/
+    /*        rgb(215, 204, 172) 0%,*/
+    /*        rgba(233, 222, 190, 0.5) 50%,*/
+    /*        rgba(255, 255, 255, 0.2) 100%*/
+    /*);*/
+    background: white;
     margin-top: -25px;
     margin-left: -25px;
     padding: 25px 25px 0 25px;
@@ -66,3 +67,4 @@ hr {
     padding: 10px;
     margin-top: 7%;
 }
+
