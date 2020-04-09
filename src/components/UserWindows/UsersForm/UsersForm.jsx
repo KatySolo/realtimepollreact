@@ -42,7 +42,7 @@ class UsersForm extends Component {
 		// TODO clear state after login + clean form
 		return (
 			<div className='usersForm'>
-				<div className='formTitle'>Добавить сессию</div>
+				<div className='formTitle'>Добавить пользователя</div>
 				<div className='formContent'>
 					<InputWithLable lable='Имя' id='name'/>
 					<div className='footer'>
