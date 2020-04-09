@@ -21,7 +21,7 @@ class StartDatePicker extends Component {
 
 	render() {
 		return(
-			<div className="input">
+			<div className="input startDate">
 				<span className="inputName">{this.props.lable}</span>
 				<input
 					className="inputInline"

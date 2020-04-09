@@ -7,3 +7,54 @@ ul {
 li {
     width: fit-content;
 }
+
+.sessionInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.resultsSection,
+.dateSection {
+    display: flex;
+    justify-content: space-between;
+}
+
+.resultsSection {
+    width: 60%
+}
+
+.dateSection {
+    width: 80%
+}
+
+.bubble {
+    margin-left: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    text-align: center;
+    line-height: 80px;
+}
+
+.result {
+    display: flex;
+    align-items: center;
+}
+
+
+.nd {
+    background-color: #A9A69F;
+}
+
+.bad {
+    background-color: #F36767;
+}
+
+.good {
+    background-color: #F3DB67;
+}
+
+.excellent {
+    background-color: #52C252;
+}

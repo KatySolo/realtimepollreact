@@ -1,37 +1,7 @@
-.menuItem {
-    /* border: 1px solid black; */
-    width: fit-content;
-    padding: 2px 5px;
-    min-width: 120px;
-    text-align: center;
-    height: fit-content;
-    min-height: 15px;
-    background: white;
+.itemName {
+    padding: 10px;
 }
 
-.arrowDown {
-    margin-left: 2px;
+.active {
+    background: #E3DDCD;
 }
-
-.submenuCont{
-    position: absolute;
-    width: inherit;
-    display: none;
-}
-.arrowDown:after {
-    content: '↓';
-}
-
-.arrowUp:after {
-    content: '↑';
-}
-
-.visible {
-    display: block;
-}
-
-a {
-    color: black;
-    text-decoration: none;
-}
-

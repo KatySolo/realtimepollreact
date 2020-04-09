@@ -1,24 +1,4 @@
 .usersForm {
     display: flex;
-}
-
-.sendNewUserButton {
-    border-radius: 5px;
-    margin-left: 5px;
-}
-
-.sendNewUserButton:focus {
-    outline: none;    
-}
-
-.msgBox {
-    height: fit-content;
-    align-self: center;
-    margin-left: 10px;
-    padding: 2px;
-}
-
-.error {
-    border: 2px solid rgba(200, 0, 0, 0.5);
-    background-color:rgba(247, 147, 147, 0.5);
+    flex-direction: column;
 }

@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
 class SessionNameInput extends Component {
 	render() {
 		return(
-			<div className="input">
+			<div className="input sessionName">
 				<span className="inputName">{this.props.lable}</span>
 				<input
 					className="inputInline"

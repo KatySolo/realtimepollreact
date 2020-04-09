@@ -1,38 +1,49 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './styles.css';
+import { setSection } from '../../../actions/appActions';
+
+const mapDispatchToProps = dispatch => {
+	return {
+		setSection: section => dispatch(setSection(section))
+	}
+};
+
+const mapStateToProps = state => {
+	return {
+		currentSection: state.app.section
+	};
+};
 
 /**
  * Component for menu item
  */
-export class MenuItem extends Component {
+class MenuItem extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			isSubMenu: this.props.children !== undefined,
-			isClicked: false
 		};
 
 		this.handleEvent = this.handleEvent.bind(this);
 	}
 
-	handleEvent(e) {
-		e.preventDefault();
-		const { isClicked } = this.state;
-		this.setState({ isClicked: !isClicked });
+	handleEvent() {
+		this.props.setSection(this.props.id);
 	}
+
 
 	render() {
 		if (this.state.isSubMenu) {
 			return (
-				<div className="menuItem" onMouseEnter={this.handleEvent} onMouseLeave={this.handleEvent}>
+				<div className="menuItem">
 					<span className="itemName">{this.props.title}</span>
-					<span className={this.state.isClicked ? 'arrowUp' : 'arrowDown'}  />
-					<div className={this.state.isClicked ? 'submenuCont visible' : 'submenuCont'}>{this.props.children}</div>
+					<div className='submenuCont'>{this.props.children}</div>
 				</div>
 			);
 		} else {
 			return(
-				<div className="menuItem">
+				<div className={this.props.id === this.props.currentSection ? 'menuItem active' : 'menuItem'} onClick={this.handleEvent}>
 					<span className="itemName">
 						{this.props.title}
 					</span>
@@ -41,3 +52,5 @@ export class MenuItem extends Component {
 		}
 	}
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuItem);

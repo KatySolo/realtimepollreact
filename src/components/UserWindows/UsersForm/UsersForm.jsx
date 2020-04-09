@@ -19,7 +19,7 @@ class UsersForm extends Component {
 		super(props);
 		this.state={
 			msg: '',
-			isError: false
+			type: 'none'
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -29,11 +29,11 @@ class UsersForm extends Component {
 		},{
 			headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
 		}).then(res => {
-			setTimeout(() => {this.setState({ msg: '' });}, 5000);
-			this.setState({ msg: res.data, isError: false });
+			setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
+			this.setState({ msg: res.data, type: 'ok' });
 		}).catch((error) => {
-			setTimeout(() => {this.setState({ msg: '', isError: false });}, 5000);
-			this.setState({ msg: error.response.data.text || 'Такой пользователь существует', isError: true });
+			setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
+			this.setState({ msg: error.response.data.text || 'Такой пользователь существует', type: 'err' });
 		});
 
 	}
@@ -42,15 +42,22 @@ class UsersForm extends Component {
 		// TODO clear state after login + clean form
 		return (
 			<div className='usersForm'>
-				<InputWithLable lable='Введите имя нового пользователя' id='name'/>
-				<button
-					className='sendNewUserButton'
-					disabled={!this.props.name}
-					onClick={this.handleSubmit}>
-                    Создать
-				</button>
-				<div className={this.state.isError ? 'msgBox error' : 'msgBox correct'}>
-					{this.state.msg}
+				<div className='formTitle'>Добавить сессию</div>
+				<div className='formContent'>
+					<InputWithLable lable='Имя' id='name'/>
+					<div className='footer'>
+						<div className='buttonContainer'>
+							<button
+								className='sendNewUserButton submitButton'
+								disabled={!this.props.name}
+								onClick={this.handleSubmit}>
+							Создать
+							</button>
+						</div>
+						<div className={'msgResultBox ' + this.state.type}>
+							<div className='msgResultBox_text'>{this.state.msg}</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		);

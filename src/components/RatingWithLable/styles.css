@@ -1,19 +1,44 @@
 .rating {
-    /* border: 1px black solid; */
-    width: fit-content;
-    padding: 5px;
+    width: 90%;
+    min-width: fit-content;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    font-size: 30px;
+    line-height: 40px;
 }
 
 .ratingInput {
     margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    appearance: none;
+    text-align: center;
+    width: 40%;
+    border: none;
+    border-bottom: 1px solid #7C8179;
+}
+
+.ratingInput::-webkit-outer-spin-button,
+.ratingInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ratingInput[type=number] {
+    -moz-appearance: textfield;
+}
+
+.ratingInput:focus {
+    outline: none;
 }
 
 .ratingName {
-    margin-right: 10px;
+    margin-right: 4%;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 .invalid {
-    border: 2px solid red;
+    border: 1px solid red;
+    padding: 0;
 }

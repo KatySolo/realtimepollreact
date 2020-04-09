@@ -1,0 +1,29 @@
+.green {
+    background: #78C9C1;
+}
+
+.yellow {
+    background: #F1E4A7;
+}
+
+body {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+#root,
+.App {
+    height: inherit;
+}
+
+.App[class*="green"] {
+    padding: 5%;
+}
+
+.App[class*="yellow"] {
+    padding-top: 5%;
+    padding-left: 5%;
+}

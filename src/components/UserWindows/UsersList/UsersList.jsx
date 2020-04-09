@@ -16,32 +16,37 @@ export class UsersList extends Component {
 		};
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		axios.get(process.env.REACT_APP_URL + '/users')
 			.then(res => {
 				this.setState({ users: res.data.users, totalNumber: res.data.totalNumber, dataIsFetched: true });
 			});
 	}
 
-	render(){
-		return (
-			<div className='usersList'>
-				<div className='totalNumber'><b>Всего пользователей:</b>
-					{this.state.dataIsFetched ? this.state.totalNumber : <Loader color='black' type="Bars" width={20} height={20}/>}
+	render() {
+		if (!this.state.dataIsFetched) {
+			return (
+				<Loader type="ThreeDots" color="black"/>
+			);
+		} else {
+			return (
+				<div className='usersList'>
+					<div className='formTitle'>Список пользователей</div>
+					<div className='formContent'>
+						<div className='totalNumber'>
+							<b>Всего пользователей:</b>
+							<span className='totalCounter'>{this.state.totalNumber}</span>
+						</div>
+						<ol>
+							{this.state.users.map((user, key) => {
+								return (
+									<li key={key}>{user.name}</li>
+								);
+							})}
+						</ol>
+					</div>
 				</div>
-				{!this.state.dataIsFetched && (
-					<Loader type="Bars" color="black"/>
-				)}
-				{this.state.dataIsFetched && (
-					<ol>
-						{this.state.users.map((user, key) => {
-							return (
-								<li key={key}>{user.name}</li>
-							);
-						})}
-					</ol>
-				)}
-			</div>
-		);
+			);
+		}
 	}
 }

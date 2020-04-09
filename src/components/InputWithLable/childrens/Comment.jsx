@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
 class CommentInput extends Component {
 	render(){
 		return(
-			<div className="input">
+			<div className="input comment">
 				<span className="inputName">{this.props.lable}</span>
 				<textarea
 					className="inputNotInline"

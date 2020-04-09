@@ -1,6 +1,7 @@
 .three-column {
     display: grid;
     grid-template-columns: auto auto auto;
-    /* border: 1px solid black; */
-    width: fit-content;
+    min-width: fit-content;
+    width: 70%;
+    padding: 10px;
 }
