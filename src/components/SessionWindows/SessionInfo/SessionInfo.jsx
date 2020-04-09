@@ -40,27 +40,54 @@ export class SessionInfo extends Component {
 			});
 	}
 
+	calcGrade(score) {
+		if (score === 0) return 'none';
+		return score < 5 ? 'bad' : score < 8 ? 'good' : 'excellent';
+	}
+
 	render() {
 		if (!this.state.isDataReady) {
 			return (<Loader type='ThreeDots' color="black"/>);
 		} else {
 			return (
 				<div className="sessionInfo">
-					<div className='sessionTitle'><b>Название сессии: </b>{this.state.title}</div>
-					<div className='sessionStart'><b>Начало сессии: </b>{this.state.start}</div>
-					<div className='sessionFinish'><b>Окончание сессии: </b>{this.state.finish}</div>
-					<div className='sessionCount'><b>Кол-во проголосовавших: </b>{this.state.count}</div>
-					<div className='sessionForm'><b>Форма: </b>{this.state.form}</div>
-					<div className='sessionInterest'><b>Интерес: </b>{this.state.interest}</div>
-					<div className='sessionContent'><b>Содеражание: </b>{this.state.content}</div>
-					<div className='sessionComments'><b>Коментарии: </b>
-						{this.state.comments.length === 0 ? (
-							<span>Никто не оставил коментариев</span>
-						): (
-							<ul>
-								{this.state.comments.map((comment, key) => <li key={key}>{comment}</li>)}
-							</ul>
-						)}
+					<div className='formTitle'>Результаты сессии</div>
+					<div className='formContent'>
+						<div className='sessionTitle'><span>Название сессии: </span>{this.state.title}</div>
+						<div className='dateSection'>
+							<div className='sessionStart'><span>Начало сессии: </span>{this.state.start}</div>
+							<div className='sessionFinish'><span>Окончание сессии: </span>{this.state.finish}</div>
+						</div>
+						<div className='sessionCount'><span>Кол-во проголосовавших: </span>{this.state.count}</div>
+						<div className='resultsSection'>
+							<div className='result formResult'>
+								<span>Форма:</span>
+								<div className={'bubble '+ this.calcGrade(this.state.form)}>
+									{this.state.form}
+								</div>
+							</div>
+							<div className='result interestResult'>
+								<span>Интерес: </span>
+								<div className={'bubble '+ this.calcGrade(this.state.interest)}>
+									{this.state.interest}
+								</div>
+							</div>
+							<div className='result contentResult'>
+								<span>Содеражание: </span>
+								<div className={'bubble '+ this.calcGrade(this.state.content)}>
+									{this.state.content}
+								</div>
+							</div>
+						</div>
+						<div className='sessionComments'><span>Коментарии: </span>
+							{this.state.comments.length === 0 ? (
+								<span>Никто не оставил коментариев</span>
+							): (
+								<ul>
+									{this.state.comments.map((comment, key) => <li key={key}>{comment}</li>)}
+								</ul>
+							)}
+						</div>
 					</div>
 				</div>
 			);}
