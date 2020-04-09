@@ -15,6 +15,9 @@ npm run start
 Windows:
 ??????
 
+Figma: https://www.figma.com/file/d5082EpG69nu2uxOubAwiV/Florette
+Прототип: https://www.figma.com/proto/d5082EpG69nu2uxOubAwiV/Florette?node-id=0%3A1
+
 ## Использование
 
 В сервисе есть две роли - пользователь и администратор.
