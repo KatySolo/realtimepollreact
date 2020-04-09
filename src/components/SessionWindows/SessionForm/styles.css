@@ -9,8 +9,28 @@
 
 .sessionName,
 .lectorName,
-.date_container,
 .startDate,
 .finishDate {
     display: flex
+}
+
+.sessionName,
+.lectorName {
+    width: 40%
+}
+
+/*.startDate > .inputInline,*/
+/*.finishDate > .inputInline {*/
+/*     width: 100%;*/
+/*}*/
+
+.startDate,
+.finishDate{
+    width: fit-content;
+}
+
+.date_container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
 }

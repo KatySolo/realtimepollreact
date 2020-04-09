@@ -54,47 +54,47 @@ export class SessionsList extends Component {
 	}
 
 	render() {
-		// if (!this.state.isDataReady){
-		// 	return <Loader type="ThreeDots" color="black"/>;
-		// } else {
-		return (
-			<div className="sessionsList">
-				<div className='formTitle'>Список сессий</div>
-				<div className='formContent'>
-					<div className='ttu_container'>
-						<span className='TTU'> Следующее обновление списка через: { this.state.TTU / 1000 } секунд </span>
-						<button onClick={this.manualFetch} className='submitButton'> Обновить результаты </button>
-					</div>
-					<table cellSpacing='0'>
-						<thead>
-							<tr>
-								<th>Название сессии</th>
-								<th>Начало голосования</th>
-								<th>Конец голосования</th>
-								<th>Статус</th>
-								<th>Результаты</th>
-							</tr>
-						</thead>
-						<tbody>
-							{this.state.results.map((result, key) => {
-								return (<tr key={key}>
-									<td className='title_cell'>{result.title}</td>
-									<td className='start_cell'>{new Date(result.start).toLocaleString()}</td>
-									<td className='finish_cell'>{new Date(result.finish).toLocaleString()}</td>
-									<td><span className={result.id === -1 ? result.isActive ? 'current' : 'future' : 'finished'} /></td>
-									<td>
-										<Link to={'/admin/sessions/'+result.id}>
-											<span className={result.id === -1 ? 'disabled' : ''}>Посмотреть</span>
-										</Link>
-									</td>
+		if (!this.state.isDataReady){
+			return <Loader type="ThreeDots" color="black"/>;
+		} else {
+			return (
+				<div className="sessionsList">
+					<div className='formTitle'>Список сессий</div>
+					<div className='formContent'>
+						<div className='ttu_container'>
+							<span className='TTU'> Следующее обновление списка через: { this.state.TTU / 1000 } секунд </span>
+							<button onClick={this.manualFetch} className='submitButton'> Обновить результаты </button>
+						</div>
+						<table cellSpacing='0'>
+							<thead>
+								<tr>
+									<th>Название сессии</th>
+									<th>Начало голосования</th>
+									<th>Конец голосования</th>
+									<th>Статус</th>
+									<th>Результаты</th>
 								</tr>
-								);
-							})
-							}
-						</tbody>
-					</table>
-				</div>
-			</div>
-		);}
-	// }
+							</thead>
+							<tbody>
+								{this.state.results.map((result, key) => {
+									return (<tr key={key}>
+										<td className='title_cell'>{result.title}</td>
+										<td className='start_cell'>{new Date(result.start).toLocaleString()}</td>
+										<td className='finish_cell'>{new Date(result.finish).toLocaleString()}</td>
+										<td><span className={result.id === -1 ? result.isActive ? 'current' : 'future' : 'finished'} /></td>
+										<td>
+											<Link to={'/admin/sessions/'+result.id}>
+												<span className={result.id === -1 ? 'disabled' : ''}>Посмотреть</span>
+											</Link>
+										</td>
+									</tr>
+									);
+								})
+								}
+							</tbody>
+						</table>
+					</div>
+				</div>)
+			;}
+	}
 }

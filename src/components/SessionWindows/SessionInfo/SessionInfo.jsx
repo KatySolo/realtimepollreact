@@ -41,7 +41,7 @@ export class SessionInfo extends Component {
 	}
 
 	calcGrade(score) {
-		if (score === 0) return 'none';
+		if (score === 0) return 'nd';
 		return score < 5 ? 'bad' : score < 8 ? 'good' : 'excellent';
 	}
 
