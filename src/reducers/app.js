@@ -15,7 +15,6 @@ export function appReducer(state = initialState, action) {
 			...state,
 			section: action.payload
 		};
-
 	default:
 		return state;
 	}

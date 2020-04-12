@@ -12,12 +12,13 @@ import {
 	withRouter
 } from 'react-router-dom';
 import auth0Client from '../../Auth';
-import { setColor } from '../../actions/appActions';
+import { resetStore, setColor } from '../../actions/appActions';
 import { connect } from 'react-redux';
 
 const mapDispatchToProps = dispatch => {
 	return {
-		setAppColor: name => dispatch(setColor(name))
+		setAppColor: name => dispatch(setColor(name)),
+		resetStore: () => dispatch(resetStore())
 	};
 };
 
@@ -25,10 +26,19 @@ const mapDispatchToProps = dispatch => {
  * Component for admin panel
  */
 class AdminPanel extends Component {
+	constructor(props) {
+		super(props);
+		this.login = this.login.bind(this);
+		this.logout = this.logout.bind(this);
+	}
 	logout() {
-		// TODO it check once but after its not -> clear all cookies
 		auth0Client.signOut();
+		this.props.resetStore();
 		this.props.history.replace('/');
+	}
+
+	login() {
+		auth0Client.signIn();
 	}
 
 	render() {
@@ -38,7 +48,7 @@ class AdminPanel extends Component {
 				<div className='adminLogin'>
 					<div className='loginText'>Доступ к панели администратора ограничен</div>
 					<hr />
-					<button className='submitButton login' onClick={auth0Client.signIn}>Войти</button>
+					<button className='submitButton login' onClick={this.login}>Войти</button>
 				</div>
 
 			);
@@ -63,7 +73,7 @@ class AdminPanel extends Component {
 								</MenuItem>
 								{/* // remove cookie and logput */}
 							</Menu>
-							<span className='logout' onClick={() => this.logout()}><MenuItem title='Выйти'/></span>
+							<span className='logout' onClick={this.logout}><MenuItem title='Выйти'/></span>
 						</div>
 
 						<div className='adminPanel_content'>

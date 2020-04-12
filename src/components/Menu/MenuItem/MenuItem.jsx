@@ -6,7 +6,7 @@ import { setSection } from '../../../actions/appActions';
 const mapDispatchToProps = dispatch => {
 	return {
 		setSection: section => dispatch(setSection(section))
-	}
+	};
 };
 
 const mapStateToProps = state => {

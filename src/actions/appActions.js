@@ -11,3 +11,9 @@ export function setSection (section) {
 		payload: section
 	};
 }
+
+export function resetStore () {
+	return {
+		type: 'APP/RESET'
+	};
+}
