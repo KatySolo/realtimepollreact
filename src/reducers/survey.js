@@ -1,11 +1,11 @@
-const initialState = {
+export const surveyInitialState = {
 	form: 1,
 	interest: 1,
 	content: 1,
 	comment: ''
 };
 
-export function surveyReducer(state = initialState, action) {
+export function surveyReducer(state = surveyInitialState, action) {
 	switch (action.type) {
 	case 'SURVEY/SET_INTEREST':
 		return {

@@ -1,4 +1,4 @@
-const initialState = {
+export const sessionInitialState = {
 	sessions: [],
 	sessionId: -1,
 	title: '',
@@ -7,7 +7,7 @@ const initialState = {
 	finish: new Date()
 };
 
-export function sessionReducer (state = initialState, action) {
+export function sessionReducer (state = sessionInitialState, action) {
 	switch (action.type) {
 	case 'SESSION/SET_SESSIONS':
 		return {
