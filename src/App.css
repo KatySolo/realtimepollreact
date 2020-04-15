@@ -17,6 +17,7 @@ html, body {
 #root,
 .App {
     height: inherit;
+    box-sizing: content-box;
 }
 
 .App[class*="green"] {
@@ -26,4 +27,13 @@ html, body {
 .App[class*="yellow"] {
     padding-top: 5%;
     padding-left: 5%;
+}
+
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (orientation: portrait) {
+    html, body {
+        height: fit-content;
+    }
 }

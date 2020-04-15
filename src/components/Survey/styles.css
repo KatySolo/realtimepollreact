@@ -7,6 +7,7 @@
     align-items: center;
     align-content: space-around;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .footer {
@@ -36,4 +37,25 @@
 
 .ok {
     background: rgba(121, 222, 138, 0.3)
+}
+
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (orientation: portrait) {
+    .input {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .survey {
+        align-items: start;
+        padding: 15px;
+        border: #1F6161 15px solid;
+    }
+
+    .survey > .footer {
+       display: block;
+        margin: 0;
+    }
 }
