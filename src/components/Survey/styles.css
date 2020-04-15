@@ -58,4 +58,11 @@ and (orientation: portrait) {
        display: block;
         margin: 0;
     }
+
+    .msgResultBox{
+        margin-top: 5px;
+        margin-left: 0;
+        padding: 5px;
+
+    }
 }

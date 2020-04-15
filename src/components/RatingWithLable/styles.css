@@ -48,7 +48,18 @@ and (min-device-width: 375px)
 and (max-device-width: 667px)
 and (orientation: portrait) {
    .rating {
-        justify-content: start;
+       justify-content: start;
+       width: 100%;
    }
+
+    .rating {
+        justify-content: start;
+        width: 100%;
+    }
+
+    .rating > .ratingInput{
+        justify-content: start;
+        /*width: 40%;*/
+    }
 }
 

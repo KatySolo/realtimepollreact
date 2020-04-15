@@ -34,7 +34,7 @@ export class RaitingTemplate extends Component {
 					max='10'
 					value={inputValue}
 					onChange={value => this.isValidValue(value.target.value)}
-					onFocus={value => value.target.select()}
+					// onFocus={value => value.target.select()}
 				/>
 			</div>
 		);
