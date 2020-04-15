@@ -59,7 +59,11 @@ and (orientation: portrait) {
 
     .rating > .ratingInput{
         justify-content: start;
-        /*width: 40%;*/
+    }
+
+    .invalid {
+        border: none;
+        border-bottom: 1px solid red;
     }
 }
 
