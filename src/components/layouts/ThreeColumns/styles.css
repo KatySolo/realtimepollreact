@@ -22,5 +22,7 @@ and (orientation: portrait) {
     .three-column > .rating {
         display: flex;
         justify-content: space-between;
+        margin: 2px 0;
+        box-sizing: border-box;
     }
 }
