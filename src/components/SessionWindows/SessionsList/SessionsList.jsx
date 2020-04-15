@@ -57,6 +57,7 @@ export class SessionsList extends Component {
 		if (!this.state.isDataReady){
 			return <Loader type="ThreeDots" color="black"/>;
 		} else {
+			// TODO span disabled issue
 			return (
 				<div className="sessionsList">
 					<div className='formTitle'>Список сессий</div>

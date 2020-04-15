@@ -21,6 +21,7 @@ export class RaitingTemplate extends Component {
 	}
 
 	render() {
+		// TODO invalid span issue
 		const { id, lable, inputValue } = this.props;
 		const { isValid } = this.state;
 		return (

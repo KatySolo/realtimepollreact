@@ -13,6 +13,7 @@ const mapDispatchToProps = dispatch => {
  */
 class CommentInput extends Component {
 	render(){
+		// TODO textarea limit issue
 		return(
 			<div className="input comment">
 				<span className="inputName">{this.props.lable}</span>
