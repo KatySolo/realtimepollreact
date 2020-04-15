@@ -23,7 +23,7 @@ export class SelectorWithLable extends Component {
 	render() {
 		return (
 			<div className='selectorContainer'>
-				<span className='selectorName'>{this.props.lable}</span>
+				<div className='selectorName'>{this.props.lable}</div>
 				{this.props.sessions === undefined && <span className='loadingMsg'>Загрузка...</span>}
 				{this.props.sessions !== undefined &&
 				<select className='selector' onChange={this.handleSelect}>

@@ -26,3 +26,21 @@ and (orientation: portrait) {
         box-sizing: border-box;
     }
 }
+
+@media (max-width: 650px) {
+    .three-column {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        width: 100%;
+        padding-bottom: 5px;
+        margin-top: 10px;
+    }
+
+    .three-column > .rating {
+        display: flex;
+        justify-content: space-between;
+        margin: 2px 0;
+        box-sizing: border-box;
+    }
+}

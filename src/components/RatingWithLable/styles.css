@@ -43,10 +43,33 @@
     padding: 0;
 }
 
+@media (max-width: 650px) {
+    .rating {
+        justify-content: start;
+        width: 100%;
+    }
+
+    .rating {
+        justify-content: start;
+        width: 100%;
+    }
+
+    .rating > .ratingInput{
+        justify-content: start;
+
+    }
+
+    .invalid {
+        border: none;
+        border-bottom: 1px solid red;
+    }
+}
+
 @media only screen
 and (min-device-width: 375px)
 and (max-device-width: 667px)
-and (orientation: portrait) {
+and (orientation: portrait)
+{
    .rating {
        justify-content: start;
        width: 100%;

@@ -35,3 +35,9 @@ and (orientation: portrait) {
         width: 100%;
     }
 }
+
+@media (max-width: 660px) {
+    .buttonContainer {
+        width: 100%;
+    }
+}
