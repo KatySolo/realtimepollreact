@@ -59,6 +59,7 @@ and (orientation: portrait) {
 
     .rating > .ratingInput{
         justify-content: start;
+
     }
 
     .invalid {
