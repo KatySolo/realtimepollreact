@@ -15,7 +15,7 @@ class NameInput extends Component {
 	render() {
 		return(
 			<div className="input name">
-				<span className="inputName">{this.props.lable}</span>
+				<div className="inputName">{this.props.lable}</div>
 				<input
 					className="inputInline"
 					type='text'

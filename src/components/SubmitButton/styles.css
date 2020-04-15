@@ -26,3 +26,18 @@
 .submitButton:hover {
     cursor: pointer;
 }
+
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (orientation: portrait) {
+    .buttonContainer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 660px) {
+    .buttonContainer {
+        width: 100%;
+    }
+}
