@@ -30,7 +30,7 @@ export class SelectorWithLable extends Component {
 					<option value={-1}>Выберите лекцию</option>
 					{this.props.sessions !== undefined && this.props.sessions.map(option => {
 						return (
-							<option value={option.id} key={option.id}>{option.title}</option>
+							<option value={option.id} key={option.id}>{option.title} ({option.lector.name})</option>
 						);
 					})}
 				</select>
