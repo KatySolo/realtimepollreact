@@ -29,6 +29,7 @@ export class SessionInfo extends Component {
 				this.setState({
 					isDataReady: true,
 					title: res.data.title,
+					lector: res.data.lector,
 					start: new Date(res.data.start).toLocaleString(),
 					finish: new Date(res.data.finish).toLocaleString(),
 					count: res.data.count,
@@ -54,6 +55,7 @@ export class SessionInfo extends Component {
 					<div className='formTitle'>Результаты сессии</div>
 					<div className='formContent'>
 						<div className='sessionTitle'><span>Название сессии: </span>{this.state.title}</div>
+						<div className='lectorName'><span>Лектор: </span> {this.state.lector}</div>
 						<div className='dateSection'>
 							<div className='sessionStart'><span>Начало сессии: </span>{this.state.start}</div>
 							<div className='sessionFinish'><span>Окончание сессии: </span>{this.state.finish}</div>

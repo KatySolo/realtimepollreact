@@ -69,6 +69,7 @@ export class SessionsList extends Component {
 							<thead>
 								<tr>
 									<th>Название сессии</th>
+									<th>Лектор</th>
 									<th>Начало голосования</th>
 									<th>Конец голосования</th>
 									<th>Статус</th>
@@ -79,6 +80,7 @@ export class SessionsList extends Component {
 								{this.state.results.map((result, key) => {
 									return (<tr key={key}>
 										<td className='title_cell'>{result.title}</td>
+										<td className='lector_cell'>{result.lector}</td>
 										<td className='start_cell'>{new Date(result.start).toLocaleString()}</td>
 										<td className='finish_cell'>{new Date(result.finish).toLocaleString()}</td>
 										<td><span className={result.id === -1 ? result.isActive ? 'current' : 'future' : 'finished'} /></td>
