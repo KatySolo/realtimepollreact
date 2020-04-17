@@ -38,12 +38,11 @@ class SessionForm extends Component {
 
 	handleSubmit() {
 		const { title, username, start, finish } = this.props;
-
 		axios.post(process.env.REACT_APP_URL + '/session', {
 			title,
 			username,
-			start,
-			finish
+			start: start.toUTCString(),
+			finish: finish.toUTCString()
 		},{
 			headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
 		}).then(res => {
