@@ -7,6 +7,7 @@ import axios from 'axios';
 import './styles.css';
 import auth0Client from '../../../Auth';
 
+
 const mapStateToProps = store => {
 	return {
 		title: store.session.title,
@@ -38,6 +39,7 @@ class SessionForm extends Component {
 
 	handleSubmit() {
 		const { title, username, start, finish } = this.props;
+		console.log(start);
 
 		axios.post(process.env.REACT_APP_URL + '/session', {
 			title,
