@@ -23,7 +23,7 @@ class FinishDatePicker extends Component {
 
 	handleChange(date) {
 		this.setState({ date });
-		this.props.setSessionFinish(date);
+		this.props.setSessionFinish(date.toUTCString());
 	}
 
 	render() {

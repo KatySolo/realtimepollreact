@@ -39,7 +39,6 @@ class SessionForm extends Component {
 
 	handleSubmit() {
 		const { title, username, start, finish } = this.props;
-		console.log(start);
 
 		axios.post(process.env.REACT_APP_URL + '/session', {
 			title,

@@ -81,8 +81,8 @@ export class SessionsList extends Component {
 									return (<tr key={key}>
 										<td className='title_cell'>{result.title}</td>
 										<td className='lector_cell'>{result.lector}</td>
-										<td className='start_cell'>{result.start}</td>
-										<td className='finish_cell'>{result.finish}</td>
+										<td className='start_cell'>{new Date(result.start).toLocaleString()}</td>
+										<td className='finish_cell'>{new Date(result.finish).toLocaleString()}</td>
 										<td><span className={result.id === -1 ? result.isActive ? 'current' : 'future' : 'finished'} /></td>
 										<td>
 											<Link to={'/admin/sessions/'+result.id}>
