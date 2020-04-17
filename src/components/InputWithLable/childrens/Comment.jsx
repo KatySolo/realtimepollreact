@@ -24,6 +24,7 @@ class CommentInput extends Component {
 					rows="5"
 					value={this.props.inputValue}
 					onChange={value => this.props.setComment(value.target.value)}
+					maxLength='255'
 				/>
 			</div>
 		);
