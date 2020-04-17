@@ -7,15 +7,22 @@
     line-height: 40px;
 }
 
+.ratingContainer {
+    width: 45%;
+    box-sizing: border-box;
+    padding: 2px;
+}
+
 .ratingInput {
     margin: 0;
     font-size: inherit;
     line-height: inherit;
     appearance: none;
     text-align: center;
-    width: 40%;
+    width: 100%;
     border: none;
     border-bottom: 1px solid #7C8179;
+    padding: 1px 1px 0 1px;
 }
 
 .ratingInput::-webkit-outer-spin-button,
@@ -33,13 +40,18 @@
 }
 
 .ratingName {
-    margin-right: 4%;
+    margin-right: 20px;
     font-size: inherit;
     line-height: inherit;
 }
 
 .invalid {
     border: 1px solid red;
+    /*padding: 0;*/
+}
+
+.invalid > .ratingInput {
+    border: none;
     padding: 0;
 }
 
@@ -56,13 +68,13 @@
 
     .rating > .ratingInput{
         justify-content: start;
-
     }
 
     .invalid {
-        border: none;
+        /*border: none;*/
         border-bottom: 1px solid red;
     }
+
 }
 
 @media only screen

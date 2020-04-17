@@ -27,16 +27,18 @@ export class RaitingTemplate extends Component {
 		return (
 			<div className="rating">
 				<span className="ratingName" id={id}>{lable}</span>
-				<input
-					className={isValid ? 'ratingInput' : 'ratingInput invalid'}
-					placeholder='5'
-					type='number'
-					min='1'
-					max='10'
-					value={inputValue}
-					onChange={value => this.isValidValue(value.target.value)}
+				<div className={isValid ? 'ratingContainer' : 'ratingContainer invalid'}>
+					<input
+						className='ratingInput'
+						placeholder='5'
+						type='number'
+						min='1'
+						max='10'
+						value={inputValue}
+						onChange={value => this.isValidValue(value.target.value)}
 					// onFocus={value => value.target.select()}
-				/>
+					/>
+				</div>
 			</div>
 		);
 	}
