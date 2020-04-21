@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import DatePicker from 'react-datepicker';
 import { setSessionFinish } from '../../../actions/sessionActions';
 
 const mapDispatchToProps = dispatch => {
@@ -14,20 +15,26 @@ const mapDispatchToProps = dispatch => {
 class FinishDatePicker extends Component {
 	constructor(props) {
 		super(props);
+		this.handleChange = this.handleChange.bind(this);
 		this.state = {
-			date: this.props.converter(new Date().toLocaleString())
+			date: new Date()
 		};
+	}
+
+	handleChange(date) {
+		this.setState({ date });
+		this.props.setSessionFinish(date.toUTCString());
 	}
 
 	render() {
 		return(
 			<div className="input finishDate">
 				<span className="inputName">{this.props.lable}</span>
-				<input
+				<DatePicker 
 					className="inputInline"
-					type='datetime-local'
-					value={this.state.date}
-					onChange={ value => this.setState({ date: value.currentTarget.value }, () => this.props.setSessionFinish(new Date(this.state.date)))}
+					selected={this.state.date}
+					onChange={this.handleChange}
+					dateFormat='dd/MM/yyyy, HH:mm'
 				/>
 			</div>
 		);

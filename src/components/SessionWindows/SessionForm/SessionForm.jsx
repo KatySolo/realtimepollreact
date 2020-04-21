@@ -7,6 +7,7 @@ import axios from 'axios';
 import './styles.css';
 import auth0Client from '../../../Auth';
 
+
 const mapStateToProps = store => {
 	return {
 		title: store.session.title,
