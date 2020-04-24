@@ -1,0 +1,15 @@
+.cross-icon {
+    color: gray;
+    display: inline-block;
+}
+
+.cross-icon:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.delete-tooltip {
+    font-size: 70%;
+    line-height: 130%;
+    width: 200px;
+}
