@@ -23,6 +23,10 @@ class StartDatePicker extends Component {
 		};
 	}
 
+	componentDidMount() {
+		this.props.setSessionStart(this.state.date.toUTCString());
+	}
+
 	handleChange(date) {	
 		this.setState({ date });
 		this.props.setSessionStart(date.toUTCString());

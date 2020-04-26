@@ -21,6 +21,10 @@ class FinishDatePicker extends Component {
 		};
 	}
 
+	componentDidMount() {
+		this.props.setSessionFinish(this.state.date.toUTCString());
+	}
+
 	handleChange(date) {
 		this.setState({ date });
 		this.props.setSessionFinish(date.toUTCString());
