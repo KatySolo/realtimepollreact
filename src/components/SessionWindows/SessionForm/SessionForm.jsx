@@ -33,8 +33,11 @@ class SessionForm extends Component {
 	}
 	isValidForm() {
 		const { title, username, start, finish } = this.props;
+		const startToDate = new Date(start);
+		const finishToDate = new Date(finish);
 
-		return title !== '' && username !== '' && start <= finish;
+
+		return title !== '' && username !== '' && startToDate <= finishToDate;
 	}
 
 	handleSubmit() {
