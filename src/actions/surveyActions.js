@@ -1,27 +1,6 @@
-export function setFormValue (form) {
+export function setSessionScore(title, score) {
 	return {
-		type: 'SURVEY/SET_FORM',
-		payload: form,
-	};
-}
-
-export function setInterestValue (interest) {
-	return {
-		type: 'SURVEY/SET_INTEREST',
-		payload: interest,
-	};
-}
-
-export function setContentValue (content) {
-	return {
-		type: 'SURVEY/SET_CONTENT',
-		payload: content,
-	};
-}
-
-export function setComment (comment) {
-	return {
-		type: 'SURVEY/SET_COMMENT',
-		payload: comment,
+		type: 'SURVEY/SET_SCORE',
+		payload: { title, score }
 	};
 }
