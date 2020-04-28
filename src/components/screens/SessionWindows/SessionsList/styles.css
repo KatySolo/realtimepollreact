@@ -16,7 +16,6 @@ th, td {
     margin: 0;
     box-sizing: content-box;
     border-collapse: collapse;
-
 }
 
 thead tr th {
@@ -41,14 +40,12 @@ tbody> tr > td {
     border-color: inherit;
 }
 
-
-
 tbody tr:hover {
     background: #f7f0e2;
 }
 
 .start_cell,
-.finish_cell{
+.finish_cell {
     width: 20%;
 }
 
@@ -96,4 +93,8 @@ tbody tr:hover {
 
 .TTU {
     height: fit-content;
+}
+
+.cross-icon_cell {
+    border: none;
 }
