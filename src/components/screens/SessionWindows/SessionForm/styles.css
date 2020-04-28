@@ -1,0 +1,23 @@
+.sessionForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.title,
+.lector {
+    display: flex;
+    width: 40%
+}
+
+
+.startDate,
+.finishDate{
+    display: flex;
+    width: fit-content;
+}
+
+.date_container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}

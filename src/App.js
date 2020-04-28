@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import  Survey  from './components/Survey/Survey';
-import AdminPanel from './components/AdminPanel/AdminPanel';
+import  Survey  from './components/screens/survey/Survey';
+import AdminPanel from './components/screens/admin/AdminPanel';
 import Callback from './Callback';
 import {
 	BrowserRouter as Router,

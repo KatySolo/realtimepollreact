@@ -4,10 +4,10 @@ export const userInitialState = {
 
 export function userReducer(state = userInitialState, action) {
 	switch (action.type) {
-	case 'USER/SET_NAME':
+	case 'USER/SET_PARAM':
 		return {
 			...state,
-			name: action.payload
+			[action.payload.title]: action.payload.value
 		};
 
 	default:

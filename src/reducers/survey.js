@@ -7,31 +7,14 @@ export const surveyInitialState = {
 
 export function surveyReducer(state = surveyInitialState, action) {
 	switch (action.type) {
-	case 'SURVEY/SET_INTEREST':
+	case 'SURVEY/SET_SCORE':
 		return {
 			...state,
-			interest: action.payload
+			[action.payload.title]: action.payload.score
 		};
-
-	case 'SURVEY/SET_FORM':
-		return {
-			...state,
-			form: action.payload
-		};
-
-	case 'SURVEY/SET_CONTENT':
-		return {
-			...state,
-			content: action.payload
-		};
-
-	case 'SURVEY/SET_COMMENT':
-		return {
-			...state,
-			comment: action.payload
-		};
-
 	default:
 		return state;
 	}
 }
+
+// TODO initial state now about names and values

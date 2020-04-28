@@ -1,7 +1,7 @@
 {
-  "plugins": [],
   "recurseDepth": 10,
   "source": {
+    "include": ["src/components"],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"
   },
@@ -12,6 +12,20 @@
   },
   "templates": {
     "cleverLinks": false,
-    "monospaceLinks": false
-  }
+    "monospaceLinks": false,
+    "better-docs": {
+      "name": "My React components"
+    }
+  },
+  "opts": {
+    "destination": "documentation",
+    "recurse": true,
+    "readme": "README.md",
+    "template": "node_modules/better-docs"
+  },
+  "plugins": [
+    "plugins/markdown",
+    "better-docs/component",
+    "better-docs/category"
+  ]
 }
