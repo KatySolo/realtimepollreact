@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import './adminPanel.css';
 import './adminLogin.css';
-import { Menu, MenuItem, SubMenu } from '../../functional/Menu';
+import { Menu, MenuItem } from '../../functional/Menu';
 import { SessionsList, SessionForm, SessionInfo } from '../SessionWindows';
 import { UsersList, UsersForm } from '../UserWindows';
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	Link,
 	withRouter
 } from 'react-router-dom';
 import auth0Client from '../../../Auth';
@@ -56,33 +55,49 @@ class AdminPanel extends Component {
 
 			);
 		} else {
+			const index = [
+				{
+					title: 'Опросы',
+					domain: 'sessions',
+					dict: [
+						{
+							id: 'all',
+							title: 'Показать список'
+						},
+						{
+							id: 'add',
+							title:'Добавить'
+						}
+					]
+				},{
+					title: 'Пользователи',
+					domain: 'users',
+					dict: [
+						{
+							id: 'all',
+							title: 'Показать список'
+						},
+						{
+							id: 'add',
+							title:'Добавить'
+						}
+					]
+				}
+			];
 			this.props.setAppColor('yellow');
 			return (
 				<div className="adminPanel">
 					<Router>
 						<div className='header'>
-							<Menu >
-								<MenuItem title="Опросы">
-									<SubMenu>
-										<Link to='/admin/sessions/list'><MenuItem title="Показать список" id='all_surveys' /></Link>
-										<Link to='/admin/sessions/add'><MenuItem title="Добавить" id='add_survey' /></Link>
-									</SubMenu>
-								</MenuItem>
-								<MenuItem title="Пользователи">
-									<SubMenu>
-										<Link to='/admin/users/list'><MenuItem title="Показать список" id='all_users'/></Link>
-										<Link to='/admin/users/add'><MenuItem title="Добавить" id='add_user'/></Link>
-									</SubMenu>
-								</MenuItem>
-							</Menu>
+							<Menu index={index}/>
 							<span className='logout' onClick={this.logout}><MenuItem title='Выйти'/></span>
 						</div>
 
 						<div className='adminPanel_content'>
 							<Switch>
-								<Route path="/admin/sessions/list" component={SessionsList}/>
+								<Route path="/admin/sessions/all" component={SessionsList}/>
 								<Route path="/admin/sessions/add" component={SessionForm}/>
-								<Route path="/admin/users/list" component={UsersList}/>
+								<Route path="/admin/users/all" component={UsersList}/>
 								<Route path="/admin/users/add" component={UsersForm}/>
 								<Route path="/admin/sessions/:id" render={(props) => <SessionInfo {...props} />} />
 							</Switch>

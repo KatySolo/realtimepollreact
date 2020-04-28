@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios  from 'axios';
-import CrossIcon from '../../../CrossIcon/CrossIcon';
+import CrossIcon from '../../../functional/CrossIcon/CrossIcon';
 import { Link } from 'react-router-dom';
 
 export default class UsersListItem extends Component {
@@ -27,9 +27,9 @@ export default class UsersListItem extends Component {
 				</Link>
 			</td>
 			<td className='cross-icon_cell'>
-				<CrossIcon 
-					onClick={this.onDelete} 
-					question={`Удалить сессию ${this.props.title}?`} 
+				<CrossIcon
+					onClick={this.onDelete}
+					question={`Удалить сессию ${this.props.title}?`}
 				/>
 			</td>
 		</tr>
