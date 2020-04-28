@@ -18,11 +18,15 @@ li {
     margin-left: 10px;
 }
 
-.usersList > .formTitle {
+.usersList>.formTitle {
     margin-bottom: 0;
 }
 
 .usersList {
     display: flex;
     flex-direction: column;
+}
+
+.user-item__user-name {
+    margin-right: 30px;
 }

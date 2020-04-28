@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import SessionsListItem from './SessionsListItem';
 import Loader from 'react-loader-spinner';
 const UPDATE_STEP = 60000;
 
@@ -80,20 +80,8 @@ export class SessionsList extends Component {
 								</tr>
 							</thead>
 							<tbody>
-								{this.state.results.map((result, key) => {
-									return (<tr key={key}>
-										<td className='title_cell'>{result.title}</td>
-										<td className='lector_cell'>{result.lector}</td>
-										<td className='start_cell'>{new Date(result.start).toLocaleString()}</td>
-										<td className='finish_cell'>{new Date(result.finish).toLocaleString()}</td>
-										<td><span className={result.id === -1 ? result.isActive ? 'current' : 'future' : 'finished'} /></td>
-										<td>
-											<Link to={'/admin/sessions/'+result.id}>
-												<span className={result.id === -1 ? 'disabled' : ''}>Посмотреть</span>
-											</Link>
-										</td>
-									</tr>
-									);
+								{this.state.results.map((result) => {
+									return <SessionsListItem key={result.title} {...result} onDelete={this.fetchData}/>;
 								})
 								}
 							</tbody>

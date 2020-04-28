@@ -2,6 +2,7 @@ import React, { Component }  from 'react';
 import './styles.css';
 import axios  from 'axios';
 import Loader from 'react-loader-spinner';
+import UsersListItem from './UsersListItem';
 
 /**
  *Список всех пользователей
@@ -17,9 +18,19 @@ export class UsersList extends Component {
 			users: [],
 			dataIsFetched: false
 		};
+		this.fetchUsers = this.fetchUsers.bind(this);
+		this.onDelete = this.onDelete.bind(this);
 	}
 
 	componentDidMount() {
+		this.fetchUsers();
+	}
+
+	onDelete() {
+		this.fetchUsers();
+	}
+
+	fetchUsers() {
 		axios.get(process.env.REACT_APP_URL + '/users')
 			.then(res => {
 				this.setState({ users: res.data.users, totalNumber: res.data.totalNumber, dataIsFetched: true });
@@ -41,9 +52,9 @@ export class UsersList extends Component {
 							<span className='totalCounter'>{this.state.totalNumber}</span>
 						</div>
 						<ol>
-							{this.state.users.map((user, key) => {
+							{this.state.users.map((user) => {
 								return (
-									<li key={key}>{user.name}</li>
+									<UsersListItem key={user.id} {...user} onDelete={this.onDelete}/>
 								);
 							})}
 						</ol>
