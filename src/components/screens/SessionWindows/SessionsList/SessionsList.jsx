@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './styles.css';
 import axios from 'axios';
 import SessionsListItem from './SessionsListItem';
+import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
 const UPDATE_STEP = 60000;
 
