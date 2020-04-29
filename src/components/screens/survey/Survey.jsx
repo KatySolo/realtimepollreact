@@ -4,7 +4,6 @@ import { Selector } from '../../functional/Selector/Selector';
 import RatingN from '../../functional/Rating/RatingN';
 import SubmitButton from '../../functional/SubmitButton/SubmitButton';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import './styles.css';
 import {
 	setSessionParam,
@@ -12,6 +11,8 @@ import {
 	setUserParam,
 	setColor,
 } from '../../../actions';
+import { getCurrentSessions } from '../../../api/session';
+import { postResult } from '../../../api/result';
 
 
 
@@ -56,7 +57,7 @@ class Survey extends Component {
 	}
 
 	componentDidMount() {
-		axios.get(process.env.REACT_APP_URL + '/current')
+		getCurrentSessions()
 			.then(res => {
 				this.props.setSessionParam('sessions', res.data);
 			});
@@ -64,18 +65,11 @@ class Survey extends Component {
 
 
 	handleSubmit() {
-		const { sessionId, form, content, interest, name, comment } = this.props;
-		axios.post(process.env.REACT_APP_URL + '/results', {
-			sessionId,
-			form,
-			content,
-			interest,
-			username: name,
-			comment
-		}).then(res => {
-			setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
-			this.setState({ msg: res.data.text, type: 'ok' });
-		})
+		postResult(this.props)
+			.then(res => {
+				setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
+				this.setState({ msg: res.data.text, type: 'ok' });
+			})
 			.catch((error) => {
 				setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
 				this.setState({ msg: error.response.data.text || 'Произошла ошибка', type: 'err' });

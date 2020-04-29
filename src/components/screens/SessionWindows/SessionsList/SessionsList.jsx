@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './styles.css';
-import axios from 'axios';
 import SessionsListItem from './SessionsListItem';
 import Loader from 'react-loader-spinner';
+import { getSessionsList } from '../../../../api/session';
 const UPDATE_STEP = 60000;
 
 /**
@@ -41,7 +41,7 @@ export class SessionsList extends Component {
 	}
 
 	fetchData() {
-		axios.get(process.env.REACT_APP_URL + '/sessions')
+		getSessionsList()
 			.then(res => {
 				this.setState({ results: res.data, isDataReady: true, TTU: UPDATE_STEP });
 			});

@@ -1,10 +1,9 @@
 import React, { Component }  from 'react';
 import InputWithLabel from '../../../functional/Input/Input';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import './styles.css';
-import auth0Client from '../../../../Auth';
 import { setUserParam } from '../../../../actions';
+import { createUser } from '../../../../api/user';
 
 const mapDispatchToProps = dispatch => {
 	return {
@@ -36,18 +35,14 @@ class UsersForm extends Component {
 	}
 
 	handleSubmit() {
-		axios.post(process.env.REACT_APP_URL + '/user',{
-			name: this.props.name
-		},{
-			headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
-		}).then(res => {
-			setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
-			this.setState({ msg: res.data, type: 'ok' });
-		}).catch((error) => {
-			setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
-			this.setState({ msg: error.response.data.text || 'Такой пользователь существует', type: 'err' });
-		});
-
+		createUser(this.props.name)
+			.then(res => {
+				setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
+				this.setState({ msg: res.data, type: 'ok' });
+			}).catch((error) => {
+				setTimeout(() => {this.setState({ msg: '', type: 'none' });}, 5000);
+				this.setState({ msg: error.response.data.text || 'Такой пользователь существует', type: 'err' });
+			});
 	}
 
 	render(){
