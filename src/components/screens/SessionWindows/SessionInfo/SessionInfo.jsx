@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles.css';
-import axios from 'axios';
 import Loader from 'react-loader-spinner';
+import { getResult } from '../../../../api/result';
 
 /**
  *Результаты сессии
@@ -27,7 +27,7 @@ export class SessionInfo extends Component {
 
 	componentDidMount(){
 		const { id } = this.props.match.params;
-		axios.get(`${ process.env.REACT_APP_URL }/results?id=${id}`)
+		getResult(id)
 			.then(res => {
 				this.setState({
 					isDataReady: true,

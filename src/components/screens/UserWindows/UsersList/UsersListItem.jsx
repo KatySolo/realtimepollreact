@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import axios  from 'axios';
-import CrossIcon from '../../../icons/CrossIcon/CrossIcon';
+import CrossIcon from '../../../functional/CrossIcon/CrossIcon';
+import { deleteUser } from '../../../../api/user';
 
 export default class UsersListItem extends Component {
 	constructor(props) {
@@ -9,8 +9,8 @@ export default class UsersListItem extends Component {
 	}
 
 	onDelete() {
-		axios.delete(process.env.REACT_APP_URL + `/user/${this.props.id}`)
-	    .then(() => this.props.onDelete());
+		deleteUser(this.props.id)
+			.then(() => this.props.onDelete());
 	}
 
 	render() {

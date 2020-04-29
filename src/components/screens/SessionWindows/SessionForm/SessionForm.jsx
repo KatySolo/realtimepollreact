@@ -3,10 +3,9 @@ import Input from '../../../functional/Input/Input';
 import { Calendar } from '../../../functional/Calendar/Calendar';
 import { connect } from 'react-redux';
 import SubmitButton from '../../../functional/SubmitButton/SubmitButton';
-import axios from 'axios';
 import './styles.css';
-import auth0Client from '../../../../Auth';
 import { setSessionParam } from '../../../../actions';
+import { createSession } from '../../../../api/session';
 
 
 
@@ -53,22 +52,14 @@ class SessionForm extends Component {
 	}
 
 	handleSubmit() {
-		const { title, lector, start, finish } = this.props;
-
-		axios.post(process.env.REACT_APP_URL + '/session', {
-			title,
-			username: lector,
-			start,
-			finish
-		},{
-			headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
-		}).then(res => {
-			setTimeout(() => this.setState({ msg: '', type: 'none' }), 5000);
-			this.setState({ msg: res.data, type: 'ok' });
-		}).catch((error) => {
-			setTimeout(() => this.setState({ msg: '', type: 'none' }), 5000);
-			this.setState({ msg: error.response.data.text || 'Произошла ошибка', type: 'err' });
-		});
+		createSession(this.props)
+			.then(res => {
+				setTimeout(() => this.setState({ msg: '', type: 'none' }), 5000);
+				this.setState({ msg: res.data, type: 'ok' });
+			}).catch((error) => {
+				setTimeout(() => this.setState({ msg: '', type: 'none' }), 5000);
+				this.setState({ msg: error.response.data.text || 'Произошла ошибка', type: 'err' });
+			});
 	}
 
 	render(){

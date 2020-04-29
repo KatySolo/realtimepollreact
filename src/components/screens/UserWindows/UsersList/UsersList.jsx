@@ -1,8 +1,8 @@
 import React, { Component }  from 'react';
 import './styles.css';
-import axios  from 'axios';
 import Loader from 'react-loader-spinner';
 import UsersListItem from './UsersListItem';
+import { getUsersList } from '../../../../api/user';
 
 /**
  *Список всех пользователей
@@ -31,7 +31,7 @@ export class UsersList extends Component {
 	}
 
 	fetchUsers() {
-		axios.get(process.env.REACT_APP_URL + '/users')
+		getUsersList()
 			.then(res => {
 				this.setState({ users: res.data.users, totalNumber: res.data.totalNumber, dataIsFetched: true });
 			});
