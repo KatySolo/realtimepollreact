@@ -10,8 +10,8 @@ td {
     width: fit-content;
 }
 
-th,
-td {
+
+th, td {
     padding: 15px;
     margin: 0;
     box-sizing: content-box;
@@ -28,13 +28,14 @@ thead {
 }
 
 th:not(:first-child),
-tbody>tr>td:not(:first-child) {
+tbody> tr > td:not(:first-child)
+{
     border-left: 2px solid;
     border-color: inherit;
     border-collapse: collapse;
 }
 
-tbody>tr>td {
+tbody> tr > td {
     border-bottom: 2px solid;
     border-color: inherit;
 }
@@ -80,13 +81,13 @@ tbody tr:hover {
     align-content: center;
 }
 
-.ttu_container>.submitButton {
+.ttu_container > .submitButton {
     width: fit-content;
     padding: 0 5px;
     margin-left: 30px;
 }
 
-.sessionsList>.formTitle {
+.sessionsList > .formTitle {
     margin-bottom: 0;
 }
 
