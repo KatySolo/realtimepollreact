@@ -27,9 +27,9 @@ export default class UsersListItem extends Component {
 				</Link>
 			</td>
 			<td className='cross-icon_cell'>
-				<CrossIcon 
-					onClick={this.onDelete} 
-					question={`Удалить сессию ${this.props.title}?`} 
+				<CrossIcon
+					onClick={this.onDelete}
+					question={`Удалить сессию ${this.props.title}?`}
 				/>
 			</td>
 		</tr>

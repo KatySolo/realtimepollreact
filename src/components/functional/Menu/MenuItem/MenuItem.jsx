@@ -1,59 +1,40 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import './styles.css';
-import { setSection } from '../../../../actions/appActions';
 import { FunctionalParticle } from '../../FunctionalParticle';
 import * as PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const mapDispatchToProps = dispatch => {
-	return {
-		setSection: section => dispatch(setSection(section))
-	};
-};
-
-const mapStateToProps = state => {
-	return {
-		currentSection: state.app.section
-	};
-};
 
 /**
  * Элемент меню
+ * Ссылка на страницу формируется как /admin/{domain}/{id}
  *
  * @component
  */
 class MenuItem extends FunctionalParticle {
 	constructor(props) {
-		super(props, 'menuItem', props.id);
-		this.state = {
-			isSubMenu: this.props.children !== undefined,
-		};
+		super(props, props.domain, props.id);
 
 		this.handleEvent = this.handleEvent.bind(this);
 	}
 
 	handleEvent() {
-		this.props.setSection(this.props.id);
+		this.props.handleSelect(super.getTitle()+'_'+super.getId());
 	}
 
 
 	render() {
-		if (this.state.isSubMenu) {
-			return (
-				<div className="menuItem">
-					<span className="itemName">{this.props.title}</span>
-					<div className='submenuCont'>{this.props.children}</div>
-				</div>
-			);
-		} else {
-			return(
-				<div className={this.props.id === this.props.currentSection ? 'menuItem active' : 'menuItem'} onClick={this.handleEvent}>
+		const { currentSection } = this.props;
+		const isActive = super.getTitle()+'_'+super.getId() === currentSection;
+		return(
+			<Link to={'/admin/'+super.getTitle()+'/'+super.getId()} >
+				<div className={ isActive ? 'menuItem active' : 'menuItem'} onClick={this.handleEvent}>
 					<span className="itemName">
 						{this.props.title}
 					</span>
 				</div>
-			);
-		}
+			</Link>
+		);
 	}
 }
 
@@ -66,7 +47,17 @@ MenuItem.propTypes = {
 	/**
 	 * ID пункта
 	 */
-	id: PropTypes.string
+	id: PropTypes.string,
+
+	/**
+	 * Обработчки выбора
+	 */
+	handleSelect: PropTypes.func,
+
+	/**
+	 * Название домена
+	 */
+	domain: PropTypes.string
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MenuItem);
+export default MenuItem;

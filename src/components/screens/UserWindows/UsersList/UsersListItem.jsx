@@ -17,9 +17,9 @@ export default class UsersListItem extends Component {
 		return (
 			<li>
 				<span className='user-item__user-name'>{this.props.name}</span>
-				<CrossIcon 
-					onClick={this.onDelete} 
-					question={`Удалить пользователя ${this.props.name}?`} 
+				<CrossIcon
+					onClick={this.onDelete}
+					question={`Удалить пользователя ${this.props.name}?`}
 				/>
 			</li>
 		);
