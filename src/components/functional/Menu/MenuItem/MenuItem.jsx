@@ -25,9 +25,10 @@ class MenuItem extends FunctionalParticle {
 
 	render() {
 		const { currentSection } = this.props;
+		const isActive = super.getTitle()+'_'+super.getId() === currentSection;
 		return(
 			<Link to={'/admin/'+super.getTitle()+'/'+super.getId()} >
-				<div className={super.getTitle()+'_'+super.getId() === currentSection ? 'menuItem active' : 'menuItem'} onClick={this.handleEvent}>
+				<div className={ isActive ? 'menuItem active' : 'menuItem'} onClick={this.handleEvent}>
 					<span className="itemName">
 						{this.props.title}
 					</span>

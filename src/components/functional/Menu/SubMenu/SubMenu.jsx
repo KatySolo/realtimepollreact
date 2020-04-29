@@ -14,7 +14,7 @@ export class SubMenu extends React.Component {
 		return (
 			<div className="submenu">
 				<span className="itemName">{this.props.title}</span>
-				<div className='submenuCont'>
+				<div className='submenuContent'>
 					{this.props.dict.map((el, ind) => {
 						return (
 							<MenuItem

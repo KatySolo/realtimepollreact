@@ -19,7 +19,7 @@ a > .menuItem:hover {
     justify-content: space-between;
 }
 
-.submenuCont {
+.submenuContent {
     margin-top: 5px;
     display: flex;
 }
