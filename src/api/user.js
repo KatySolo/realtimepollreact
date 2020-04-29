@@ -16,3 +16,10 @@ export function createUser(name) {
         headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
     });
 }
+
+export function changeName(id, newName) {
+    return axios.patch(process.env.REACT_APP_URL + '/user', {
+        id,
+        name: newName
+    });
+}
