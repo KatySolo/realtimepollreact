@@ -7,7 +7,7 @@ export function postResult({ sessionId, form, content, interest, name, comment }
 		 content,
 		 interest,
 		 username: name,
-		 comment
+		comment
 	});
 }
 
