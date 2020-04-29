@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css';
-import { SubMenu } from '../index';
-import { setSection } from '../../../../actions';
+import { SubMenu } from './index';
+import { setSection } from './../../../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
